@@ -1,6 +1,6 @@
 #PBS -N nam_gempak_nest_%CYC%
 #PBS -j oe
-#PBS -l select=1:ncpus=5:mem=28GB
+#PBS -l select=1:ncpus=6:mem=28GB
 #PBS -q %QUEUE%
 #PBS -S /bin/bash
 #PBS -l walltime=03:00:00
