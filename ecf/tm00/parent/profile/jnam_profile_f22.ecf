@@ -1,0 +1,59 @@
+#PBS -N nam_profile_f22_%CYC%
+#PBS -j oe
+#PBS -S /bin/bash
+#PBS -l walltime=00:30:00
+#PBS -A %PROJ%-%PROJENVIR%
+#PBS -l select=1:ncpus=1:mem=4GB
+#PBS -q %QUEUE%
+#PBS -l debug=true
+
+model=nam
+%include <head.h>
+%include <envir-p1.h>
+
+# module purge
+module load envvar/${envvar_ver}
+module load PrgEnv-intel/${PrgEnv_intel_ver}
+module load intel/${intel_ver}
+module load craype/${craype_ver}
+module load cray-mpich/${cray_mpich_ver}
+module load cray-pals/${cray_pals_ver}
+module load hdf5/${hdf5_ver}
+module load netcdf/${netcdf_ver}
+
+# EXPORT list here
+
+set -x
+
+export procs=1
+export procspernode=1
+
+export cyc=%CYC%
+export tmmark=tm00
+export fhr=22
+export job=nam_profile_f22_%CYC%
+
+export MPI_LABELIO=YES
+export threads=1
+export MP_LABELIO=yes
+export OMP_NUM_THREADS=1
+export OMP_PLACES=cores
+
+# CALL executable job script here
+
+${HOMEnam}/jobs/JNAM_PROFILE
+%include <tail.h>
+%manual
+######################################################################
+# Purpose: to run NAM post processing
+######################################################################
+
+
+######################################################################
+# Job specific troubleshooting instructions:
+#  see generic troubleshoot manual page
+#
+######################################################################
+
+# include manual page below
+%end

@@ -1,0 +1,55 @@
+#PBS -N nam_profile_%grid%_f50_%CYC%
+#PBS -j oe
+#PBS -l select=1:ncpus=1:mem=10GB
+#PBS -q %QUEUE%
+#PBS -S /bin/bash
+#PBS -l walltime=00:05:00
+#PBS -A %PROJ%-%PROJENVIR%
+#PBS -l debug=true
+
+model=nam
+%include <head.h>
+%include <envir-p1.h>
+
+# module purge
+module load envvar/${envvar_ver}
+module load PrgEnv-intel/${PrgEnv_intel_ver}
+module load intel/${intel_ver}
+module load craype/${craype_ver}
+module load cray-mpich/${cray_mpich_ver}
+module load cray-pals/${cray_pals_ver}
+
+module load hdf5/${hdf5_ver}
+module load netcdf/${netcdf_ver}
+
+# EXPORT list here
+
+set -x
+
+export procs=1
+export procspernode=1
+
+export cyc=%CYC%
+export tmmark=tm00
+export fhr=50
+export domain=%grid%
+export job=nam_profile_%grid%_f50_%CYC%
+
+# CALL executable job script here
+
+${HOMEnam}/jobs/JNAM_PROFILE_NEST
+%include <tail.h>
+%manual
+######################################################################
+# Purpose: to run NAM post_%grid% processing
+######################################################################
+
+
+######################################################################
+# Job specific troubleshooting instructions:
+#  see generic troubleshoot manual page
+#
+######################################################################
+
+# include manual page below
+%end

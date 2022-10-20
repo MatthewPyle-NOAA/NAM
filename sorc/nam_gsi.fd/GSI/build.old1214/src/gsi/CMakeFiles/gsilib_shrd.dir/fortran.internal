@@ -1,0 +1,6 @@
+# The fortran modules provided by this target.
+provides
+ kinds.mod
+ mpeu_mpif.mod
+ mpeu_util.mod
+ mpimod.mod

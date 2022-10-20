@@ -1,0 +1,29 @@
+#!/bin/bash
+set -xa
+
+# export HOMEnam=$PACKAGEROOT/nam.${nam_ver}
+export JJOBSnam=$HOMEnam/jobs
+export WKDIRNAME=nam_${cyc}_${tmmark}_${envir}
+
+# Setup directories and common environment variables
+
+. ${JJOBSnam}/JNAM_ENVARS
+
+# Got these from the FV3GFS env.
+export MPI_LABELIO=YES
+export MP_STDOUTMODE="ORDERED"
+
+########################################################
+# Execute the script.
+${HOMEnam}/scripts/exnam_fcst_parentext.sh
+jerr=$?
+########################################################
+
+cat $pgmout errfile
+date
+msg="JOB $job HAS COMPLETED NORMALLY"
+postmsg "$msg"
+
+cd $DATA
+
+exit $jerr

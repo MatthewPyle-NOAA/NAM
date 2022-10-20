@@ -1,0 +1,37 @@
+This is for testing the nam_forecast runtime varibility
+(email from Eric:
+In /lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_fornco/parm:
+
+-rwxr-xr-x 1 Eric.Rogers lam    1370 Jan 11 14:36 nam_node_decomposition_opsconfig.tm00_wcoss2_63tasks_node (replace nam_node_decomposition_opsconfig.tm00_wcoss2 in ./scripts/exnam_fcst.sh)
+-rwxr-xr-x 1 Eric.Rogers lam   17610 Jan 11 14:36 nam_configfile_firewxnest_alaska_63tasks_node (copy to ./parm/nam_configfile_firewxnest_alaska)
+-rwxr-xr-x 1 Eric.Rogers lam   17604 Jan 11 14:37 nam_configfile_firewxnest_conus_63tasks_node (copy to  /parm/nam_configfile_firewxnest_conus)
+
+In /lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_fornco/ecf/forecast you'll see a file "run_nam_forecast.sh_63tasks_node", it has:
+
+#PBS -l place=vscatter:excl,select=40:ncpus=126
+.
+.
+export ntasks=2520
+export ppn=63
+export threads=2
+
+so the mpiexec command line looks like this:
+
+mpiexec --line-buffer --label -n 2520 -ppn 63 --cpu-bind depth --depth 2 $EXECnam/nam_nems_nmmb_fcst >>$pgmout 2>errfile
+
+
+==================
+:parm $ cp nam_node_decomposition_opsconfig.tm00_wcoss2_63tasks_node nam_node_decomposition_opsconfig.tm00_wcoss2
+:parm $ cp nam_configfile_firewxnest_alaska_63tasks_node nam_configfile_firewxnest_alaska
+:parm $ cp nam_configfile_firewxnest_conus_63tasks_node nam_configfile_firewxnest_conus
+:parm $ date
+Wed Jan 12 05:07:54 UTC 2022
+
+/lfs/h1/ops/para/packages/nam.v4.2.0/ecf/forecast
+:forecast $ cp jnam_forecast.ecf_63tasks_node jnam_forecast.ecf
+:forecast $ date
+Wed Jan 12 05:08:46 UTC 2022
+
+
+
+

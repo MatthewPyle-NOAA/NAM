@@ -1,0 +1,298 @@
++++ pwd
+++ SORC=/lfs/h1/ops/para/packages/nam.v4.2.0/sorc/nam_land_utilities.fd/sorc
+++ cd ../../../versions
+++ source build.ver
++++ export envvar_ver=1.0
++++ envvar_ver=1.0
++++ export PrgEnv_intel_ver=8.1.0
++++ PrgEnv_intel_ver=8.1.0
++++ export intel_ver=19.1.3.304
++++ intel_ver=19.1.3.304
++++ export craype_ver=2.7.10
++++ craype_ver=2.7.10
++++ export cray_mpich_ver=8.1.9
++++ cray_mpich_ver=8.1.9
++++ export cray_pals_ver=1.0.17
++++ cray_pals_ver=1.0.17
++++ export netcdf_ver=4.7.4
++++ netcdf_ver=4.7.4
++++ export nemsio_ver=2.5.2
++++ nemsio_ver=2.5.2
++++ export hdf5_ver=1.10.6
++++ hdf5_ver=1.10.6
++++ export prod_util_ver=2.0.10
++++ prod_util_ver=2.0.10
++++ export prod_envir_ver=2.0.5
++++ prod_envir_ver=2.0.5
++++ export libjpeg_ver=9c
++++ libjpeg_ver=9c
++++ export libpng_ver=1.6.37
++++ libpng_ver=1.6.37
++++ export jasper_ver=2.0.25
++++ jasper_ver=2.0.25
++++ export zlib_ver=1.2.11
++++ zlib_ver=1.2.11
++++ export grib_util_ver=1.2.3
++++ grib_util_ver=1.2.3
++++ export util_shared_ver=1.4.0
++++ util_shared_ver=1.4.0
++++ export cfp_ver=2.0.4
++++ cfp_ver=2.0.4
++++ export crtm_ver=2.3.0
++++ crtm_ver=2.3.0
++++ export gempak_ver=7.14.1
++++ gempak_ver=7.14.1
++++ export wrf_io_ver=1.2.0
++++ wrf_io_ver=1.2.0
++++ export cmake_ver=3.20.2
++++ cmake_ver=3.20.2
++++ export bufr_ver=11.5.0
++++ bufr_ver=11.5.0
++++ export esmf_ver=7.1.0r
++++ esmf_ver=7.1.0r
++++ export sp_ver=2.3.3
++++ sp_ver=2.3.3
++++ export ip_ver=3.3.3
++++ ip_ver=3.3.3
++++ export bacio_ver=2.4.1
++++ bacio_ver=2.4.1
++++ export sfcio_ver=1.4.1
++++ sfcio_ver=1.4.1
++++ export sigio_ver=2.3.2
++++ sigio_ver=2.3.2
++++ export w3emc_ver=2.9.1
++++ w3emc_ver=2.9.1
++++ export w3nco_ver=2.4.1
++++ w3nco_ver=2.4.1
++++ export g2_ver=3.4.5
++++ g2_ver=3.4.5
++++ export g2c_ver=1.6.4
++++ g2c_ver=1.6.4
++++ export g2tmpl_ver=1.10.0
++++ g2tmpl_ver=1.10.0
++++ export libxm12_ver=2.9.10
++++ libxm12_ver=2.9.10
++++ export landsfcutil_ver=2.4.1
++++ landsfcutil_ver=2.4.1
++++ export gfsio_ver=1.4.1
++++ gfsio_ver=1.4.1
++++ export python_ver=3.8.6
++++ python_ver=3.8.6
++++ export git_ver=2.29.0
++++ git_ver=2.29.0
+++ cd /lfs/h1/ops/para/packages/nam.v4.2.0/sorc/nam_land_utilities.fd/sorc
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_accum_firedata.fd
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) ip/3.3.3       11) sp/2.3.3           16) gfsio/1.4.1         21) hdf5/1.10.6   26) bacio/2.4.1
+  2) libfabric/1.11.0.4.91 (H)   7) w3emc/2.9.1    12) libxml2/2.9.10     17) crtm/2.3.0          22) netcdf/4.7.4  27) jasper/2.0.25
+  3) craype-network-ofi    (H)   8) g2tmpl/1.10.0  13) sfcio/1.4.1        18) PrgEnv-intel/8.1.0  23) nemsio/2.5.2  28) libpng/1.6.37
+  4) envvar/1.0                  9) libjpeg/9c     14) landsfcutil/2.4.1  19) craype/2.7.8        24) wrf_io/1.2.0  29) zlib/1.2.11
+  5) intel/19.1.3.304           10) bufr/11.5.0    15) sigio/2.3.2        20) cray-mpich/8.1.9    25) w3nco/2.4.1   30) g2/3.4.5
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+++ cd ..
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_coldstart.fd
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+The following have been reloaded with a version change:
+  1) netcdf/4.7.4 => netcdf/3.6.3
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) g2tmpl/1.10.0   11) gfsio/1.4.1         16) wrf_io/1.2.0  21) w3emc/2.9.1    26) bacio/2.4.1
+  2) libfabric/1.11.0.4.91 (H)   7) libjpeg/9c      12) crtm/2.3.0          17) netcdf/3.6.3  22) jasper/2.0.25  27) w3nco/2.4.1
+  3) craype-network-ofi    (H)   8) bufr/11.5.0     13) PrgEnv-intel/8.1.0  18) sfcio/1.4.1   23) zlib/1.2.11    28) nemsio/2.5.2
+  4) envvar/1.0                  9) libxml2/2.9.10  14) craype/2.7.8        19) ip/3.3.3      24) libpng/1.6.37  29) landsfcutil/2.4.1
+  5) intel/19.1.3.304           10) sigio/2.3.2     15) cray-mpich/8.1.9    20) sp/2.3.3      25) g2/3.4.5
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+++ cd ..
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_fire2mdl.fd
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) w3emc/2.9.1     11) sfcio/1.4.1        16) PrgEnv-intel/8.1.0  21) nemsio/2.5.2  26) bacio/2.4.1
+  2) libfabric/1.11.0.4.91 (H)   7) g2tmpl/1.10.0   12) landsfcutil/2.4.1  17) craype/2.7.8        22) wrf_io/1.2.0  27) jasper/2.0.25
+  3) craype-network-ofi    (H)   8) libjpeg/9c      13) sigio/2.3.2        18) cray-mpich/8.1.9    23) ip/3.3.3      28) zlib/1.2.11
+  4) envvar/1.0                  9) bufr/11.5.0     14) gfsio/1.4.1        19) hdf5/1.10.6         24) sp/2.3.3      29) libpng/1.6.37
+  5) intel/19.1.3.304           10) libxml2/2.9.10  15) crtm/2.3.0         20) netcdf/4.7.4        25) w3nco/2.4.1   30) g2/3.4.5
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+++ cd ..
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_gridgen_sfc.fd/lib
+++ make clean
+++ make.sh
+./build_emcsfc.sh: line 23: make.sh: command not found
+++ cd ../driver
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) g2tmpl/1.10.0   11) landsfcutil/2.4.1   16) craype/2.7.8      21) wrf_io/1.2.0  26) w3emc/2.9.1
+  2) libfabric/1.11.0.4.91 (H)   7) libjpeg/9c      12) sigio/2.3.2         17) cray-mpich/8.1.9  22) g2/3.4.5      27) bacio/2.4.1
+  3) craype-network-ofi    (H)   8) bufr/11.5.0     13) gfsio/1.4.1         18) hdf5/1.10.6       23) ip/3.3.3      28) jasper/2.0.25
+  4) envvar/1.0                  9) libxml2/2.9.10  14) crtm/2.3.0          19) netcdf/4.7.4      24) sp/2.3.3      29) zlib/1.2.11
+  5) intel/19.1.3.304           10) sfcio/1.4.1     15) PrgEnv-intel/8.1.0  20) nemsio/2.5.2      25) w3nco/2.4.1   30) libpng/1.6.37
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+driver.f90(16): error #7002: Error in opening the compiled module file.  Check INCLUDE paths.   [GRID_INFO]
+ use grid_info, only : grid_specs, read_grid_info
+-----^
+driver.f90(22): error #6406: Conflicting attributes or multiple declaration of name.   [GRID_SPECS]
+ type(grid_specs)    :: grid_mdl
+------^
+driver.f90(30): error #6406: Conflicting attributes or multiple declaration of name.   [READ_GRID_INFO]
+ call read_grid_info(grid_mdl)
+------^
+driver.f90(32): error #6404: This name does not have a type, and must have an explicit type.   [GRID_MDL]
+ call gridgen_sfc(grid_mdl)
+------------------^
+driver.f90(16): error #6580: Name in only-list does not exist or is not accessible.   [GRID_SPECS]
+ use grid_info, only : grid_specs, read_grid_info
+-----------------------^
+driver.f90(16): error #6580: Name in only-list does not exist or is not accessible.   [READ_GRID_INFO]
+ use grid_info, only : grid_specs, read_grid_info
+-----------------------------------^
+compilation aborted for driver.f90 (code 1)
+make: *** [makefile:23: driver.o] Error 1
+++ cd ../..
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_ice2mdl.fd
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) g2tmpl/1.10.0   11) sigio/2.3.2         16) cray-mpich/8.1.9  21) ip/3.3.3     26) jasper/2.0.25
+  2) libfabric/1.11.0.4.91 (H)   7) libjpeg/9c      12) gfsio/1.4.1         17) hdf5/1.10.6       22) sp/2.3.3     27) zlib/1.2.11
+  3) craype-network-ofi    (H)   8) bufr/11.5.0     13) crtm/2.3.0          18) netcdf/4.7.4      23) w3nco/2.4.1  28) libpng/1.6.37
+  4) envvar/1.0                  9) libxml2/2.9.10  14) PrgEnv-intel/8.1.0  19) nemsio/2.5.2      24) w3emc/2.9.1  29) g2/3.4.5
+  5) intel/19.1.3.304           10) sfcio/1.4.1     15) craype/2.7.8        20) wrf_io/1.2.0      25) bacio/2.4.1  30) landsfcutil/2.4.1
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+++ cd ..
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_sfcupdate.fd
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) ip/3.3.3       11) libxml2/2.9.10  16) PrgEnv-intel/8.1.0  21) wrf_io/1.2.0   26) g2/3.4.5
+  2) libfabric/1.11.0.4.91 (H)   7) g2tmpl/1.10.0  12) sfcio/1.4.1     17) craype/2.7.8        22) w3emc/2.9.1    27) bacio/2.4.1
+  3) craype-network-ofi    (H)   8) libjpeg/9c     13) sigio/2.3.2     18) cray-mpich/8.1.9    23) jasper/2.0.25  28) w3nco/2.4.1
+  4) envvar/1.0                  9) bufr/11.5.0    14) gfsio/1.4.1     19) hdf5/1.10.6         24) zlib/1.2.11    29) nemsio/2.5.2
+  5) intel/19.1.3.304           10) sp/2.3.3       15) crtm/2.3.0      20) netcdf/4.7.4        25) libpng/1.6.37  30) landsfcutil/2.4.1
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+++ cd ..
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_snow2mdl.fd
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) g2tmpl/1.10.0   11) sigio/2.3.2         16) cray-mpich/8.1.9  21) ip/3.3.3     26) jasper/2.0.25
+  2) libfabric/1.11.0.4.91 (H)   7) libjpeg/9c      12) gfsio/1.4.1         17) hdf5/1.10.6       22) sp/2.3.3     27) zlib/1.2.11
+  3) craype-network-ofi    (H)   8) bufr/11.5.0     13) crtm/2.3.0          18) netcdf/4.7.4      23) w3nco/2.4.1  28) libpng/1.6.37
+  4) envvar/1.0                  9) libxml2/2.9.10  14) PrgEnv-intel/8.1.0  19) nemsio/2.5.2      24) w3emc/2.9.1  29) g2/3.4.5
+  5) intel/19.1.3.304           10) sfcio/1.4.1     15) craype/2.7.8        20) wrf_io/1.2.0      25) bacio/2.4.1  30) landsfcutil/2.4.1
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+++ cd ..
+++ for directory in ./*.fd
+++ case $directory in
+++ cd ./emcsfc_sst2mdl.fd
+++ make clean
+++ ./make.sh
+
+The following have been reloaded with a version change:
+  1) craype/2.7.10 => craype/2.7.8
+
+
+Currently Loaded Modules:
+  1) craype-x86-rome       (H)   6) g2tmpl/1.10.0   11) sigio/2.3.2         16) cray-mpich/8.1.9  21) ip/3.3.3     26) jasper/2.0.25
+  2) libfabric/1.11.0.4.91 (H)   7) libjpeg/9c      12) gfsio/1.4.1         17) hdf5/1.10.6       22) sp/2.3.3     27) zlib/1.2.11
+  3) craype-network-ofi    (H)   8) bufr/11.5.0     13) crtm/2.3.0          18) netcdf/4.7.4      23) w3nco/2.4.1  28) libpng/1.6.37
+  4) envvar/1.0                  9) libxml2/2.9.10  14) PrgEnv-intel/8.1.0  19) nemsio/2.5.2      24) w3emc/2.9.1  29) g2/3.4.5
+  5) intel/19.1.3.304           10) sfcio/1.4.1     15) craype/2.7.8        20) wrf_io/1.2.0      25) bacio/2.4.1  30) landsfcutil/2.4.1
+
+  Where:
+   H:  Hidden Module
+
+ 
+
+++ cd ..
+++ cp ../exec/emcsfc_accum_firedata ../exec/emcsfc_coldstart ../exec/emcsfc_fire2mdl ../exec/emcsfc_ice2mdl ../exec/emcsfc_sfcupdate ../exec/emcsfc_snow2mdl ../exec/emcsfc_sst2mdl ../../../exec/.
+++ echo
+++ echo DONE BUILDING EMCSFC PROGRAMS

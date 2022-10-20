@@ -1,0 +1,71 @@
+#PBS -N nam_analysis_hawaii_%CYC%
+#PBS -j oe
+#PBS -l place=vscatter:exclhost,select=4:ncpus=128:mpiprocs=64:ompthreads=2
+#PBS -q %QUEUE%
+#PBS -S /bin/bash
+#PBS -l walltime=00:20:00
+#PBS -A %PROJ%-%PROJENVIR%
+#PBS -l debug=true
+
+model=nam
+%include <head.h>
+%include <envir-p1.h>
+
+set -x
+
+
+# EXPORT list here
+
+export FI_OFI_RXM_SAR_LIMIT=3145728
+export MPICH_COLL_OPT_OFF=1
+
+export ntasks=256
+export ppn=64
+export threads=2
+
+# OMP settings
+export OMP_PLACES=cores
+export OMP_NUM_THREADS=$threads
+export OMP_STACKSIZE=1G
+
+export cyc=%CYC%
+export tmmark=tm00
+export domain=hawaii
+export job=nam_analysis_hawaii_%CYC%
+
+export MPI_LABELIO=YES
+export MP_STDOUTMODE="ORDERED"
+
+############################################################
+### Load modules
+##############################################################
+# 
+# module purge
+module load envvar/${envvar_ver}
+module load PrgEnv-intel/${PrgEnv_intel_ver}
+module load intel/${intel_ver}
+module load craype/${craype_ver}
+module load cray-mpich/${cray_mpich_ver}
+module load cray-pals/${cray_pals_ver}
+module load crtm/${crtm_ver}
+module load cfp/${cfp_ver}
+module load netcdf/${netcdf_ver}
+
+# CALL executable job script here
+
+${HOMEnam}/jobs/JNAM_ANALYSIS_NEST
+%include <tail.h>
+%manual
+######################################################################
+# Purpose: to prepare the initial input files for NAM
+######################################################################
+
+
+######################################################################
+# Job specific troubleshooting instructions:
+#  see generic troubleshoot manual page
+#
+######################################################################
+
+# include manual page below
+%end

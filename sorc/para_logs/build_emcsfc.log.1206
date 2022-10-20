@@ -1,0 +1,151 @@
+rm -f *.o *.mod emcsfc_accum_firedata ../../exec/emcsfc_accum_firedata
+
+BUILD EMCSFC_ACCUM_FIREDATA PROGRAM ON WCOSS2
+
+rm -f *.o *.mod emcsfc_accum_firedata ../../exec/emcsfc_accum_firedata
+ftn -O0 -g -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_4 -c accum_firedata.f90
+ftn -O0 -g   -o emcsfc_accum_firedata accum_firedata.o /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_4.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_4.a /apps/ops/prod/libs/intel/19.1.3.304/sp/2.3.3/lib/libsp_4.a /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a
+/usr/bin/install -c -d ../../exec
+/usr/bin/install -c emcsfc_accum_firedata ../../exec
+rm -f *.o *.mod surface_chgres.i emcsfc_coldstart ../../exec/emcsfc_coldstart
+
+BUILD EMCSFC_COLDSTART PROGRAM ON WCOSS2
+
+rm -f *.o *.mod surface_chgres.i emcsfc_coldstart ../../exec/emcsfc_coldstart
+ftn -O0 -r8 -i4 -FR -convert big_endian -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/include -I/apps/prod/netcdf/3.6.3/intel/19.1.3.304/include -c program_setup.f
+ftn -O0 -r8 -i4 -FR -convert big_endian -c machine.f
+ftn -O0 -r8 -i4 -FR -convert big_endian -fpp -DGFS=0 -save-temps -I/apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c surface_chgres.F
+ftn -O0 -r8 -i4 -FR -convert big_endian -I/apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/include -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/sfcio/1.4.1/include -c read_data.f
+ftn -O0 -r8 -i4 -FR -convert big_endian -I/apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/include -c interp_data.f
+ftn -O0 -r8 -i4 -FR -convert big_endian -I/apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/include -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -I/apps/prod/netcdf/3.6.3/intel/19.1.3.304/include -c write_data.f
+ftn -O0 -r8 -i4 -FR -convert big_endian -c coldstart_wrf.f
+ftn -O0 -r8 -i4 -FR -convert big_endian -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c grib_utils.f
+ftn -O0 -r8 -i4 -FR -convert big_endian -qopenmp -o emcsfc_coldstart program_setup.o coldstart_wrf.o read_data.o interp_data.o write_data.o grib_utils.o surface_chgres.o machine.o /apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/lib/liblandsfcutil_d.a /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_d.a /apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/lib/libnemsio.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_d.a /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/lib/libip_d.a /apps/ops/prod/libs/intel/19.1.3.304/sfcio/1.4.1/lib/libsfcio.a /apps/ops/prod/libs/intel/19.1.3.304/sp/2.3.3/lib/libsp_d.a -L/apps/prod/netcdf/3.6.3/intel/19.1.3.304/lib -lnetcdf /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a
+/usr/bin/install -c -d ../../exec
+/usr/bin/install -c emcsfc_coldstart ../../exec
+rm -f *.o *.mod emcsfc_fire2mdl ../../exec/emcsfc_fire2mdl
+
+BUILD EMCSFC_FIRE2MDL PROGRAM ON WCOSS2.
+
+rm -f *.o *.mod emcsfc_fire2mdl ../../exec/emcsfc_fire2mdl
+ftn -O0 -g -r8 -i4 -c program_setup.f90
+ftn -O0 -g -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c firedat.f90
+ftn -O0 -g -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c model_grid.f90
+ftn -O0 -g -r8 -i4 -c driver.f90
+ftn -O0 -g -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/include_d -c interp.f90
+ftn -O0 -g -r8 -i4 -c lambconf.f90
+ftn -O0 -g -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c grib_utils.f90
+ftn -O0 -g -r8 -i4 -o emcsfc_fire2mdl driver.o firedat.o program_setup.o model_grid.o interp.o lambconf.o grib_utils.o /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_d.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_d.a /apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/lib/libip_d.a /apps/ops/prod/libs/intel/19.1.3.304/sp/2.3.3/lib/libsp_d.a /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a 
+/usr/bin/install -c -d ../../exec
+/usr/bin/install -c emcsfc_fire2mdl ../../exec
+rm -f *.o *.mod libgridgen_sfc.a ../../../incmod/emcsfc_gridgen_sfc/*.mod ../../../lib/libgridgen_sfc.a
+
+BUILD EMCSFC_GRIDGEN_SFC LIBRARY ON WCOSS DELL.
+
+rm -f *.o *.mod libgridgen_sfc.a ../../../incmod/emcsfc_gridgen_sfc/*.mod ../../../lib/libgridgen_sfc.a
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c mpimod.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c grid_info.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c program_setup.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c calc_latlons.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c native_endianness.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c init_grib2.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c init_grib1.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c ll2xy_util_bgrid.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c ll2xy_util_egrid.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c ll2xy_util_polar.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/include_d -c lsmask_orog.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c calc_tiles.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c find_bounds_ll.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c gaussian_reduced.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c green.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c grib_latlons.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/include_d -c interp_tiles.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c soil_vegtype_tile.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c gridgen_sfc.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c init_grid.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d interp_to_mdl.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c interp_utils.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c leaf_area_index.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c max_snow_albedo.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c roughness.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c slope_type.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c smooth.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c snow_free_albedo.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c soil_substrate.f90
+ftn -O3 -fp-model strict -I. -convert big_endian -r8 -i4 -c sort.f90
+ar ru libgridgen_sfc.a calc_latlons.o calc_tiles.o find_bounds_ll.o gaussian_reduced.o green.o grib_latlons.o grid_info.o gridgen_sfc.o init_grib1.o init_grib2.o init_grid.o interp_tiles.o interp_to_mdl.o interp_utils.o leaf_area_index.o ll2xy_util_bgrid.o ll2xy_util_egrid.o ll2xy_util_polar.o lsmask_orog.o max_snow_albedo.o mpimod.o native_endianness.o program_setup.o roughness.o slope_type.o smooth.o snow_free_albedo.o soil_substrate.o soil_vegtype_tile.o sort.o 
+/usr/bin/install -c -d ../../../lib
+/usr/bin/install -c libgridgen_sfc.a ../../../lib
+/usr/bin/install -c -d ../../../incmod/emcsfc_gridgen_sfc
+/usr/bin/install -c *.mod ../../../incmod/emcsfc_gridgen_sfc
+rm -f *.o *.mod emcsfc_gridgen_sfc ../../../exec/emcsfc_gridgen_sfc
+dlogin02.dogwood.wcoss2.ncep.noaa.gov
+/lfs/h1/ops/para/packages/nam.v4.2.0/sorc/nam_land_utilities.fd/sorc/emcsfc_gridgen_sfc.fd/driver/../../../modulefiles
+
+BUILD EMCSFC_GRIDGEN_SFC DRIVER PROGRAM ON WCOSS2.
+
+rm -f *.o *.mod emcsfc_gridgen_sfc ../../../exec/emcsfc_gridgen_sfc
+ftn -O3 -fp-model strict -convert big_endian -r8 -i4 -I../../../incmod/emcsfc_gridgen_sfc -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c driver.f90
+ftn -O3 -fp-model strict -convert big_endian -r8 -i4 -o emcsfc_gridgen_sfc -qopenmp driver.o ../../../lib/libgridgen_sfc.a /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_d.a /apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/lib/libip_d.a /apps/ops/prod/libs/intel/19.1.3.304/sp/2.3.3/lib/libsp_d.a /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_d.a /apps/ops/prod/libs/intel/19.1.3.304/w3emc/2.9.1/lib64/libw3emc_d.a /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a
+/usr/bin/install -c -d ../../../exec
+/usr/bin/install -c emcsfc_gridgen_sfc ../../../exec
+rm -f *.o *.mod emcsfc_ice2mdl ../../exec/emcsfc_ice2mdl
+
+BUILD EMCSFC_ICE2MDL PROGRAM ON WCOSS2.
+
+rm -f *.o *.mod emcsfc_ice2mdl ../../exec/emcsfc_ice2mdl
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -c program_setup.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c icedat.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c model_grid.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/include_d -c ice2mdl.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c grib_utils.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -c driver.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -o emcsfc_ice2mdl program_setup.o icedat.o model_grid.o ice2mdl.o grib_utils.o driver.o  /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_d.a /apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/lib/libip_d.a /apps/ops/prod/libs/intel/19.1.3.304/sp/2.3.3/lib/libsp_d.a /apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/lib/liblandsfcutil_d.a /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_d.a /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a
+/usr/bin/install -c -d ../../exec
+/usr/bin/install -c emcsfc_ice2mdl ../../exec
+rm -f *.o *.mod emcsfc_sfcupdate ../../exec/emcsfc_sfcupdate
+
+BUILD EMCSFC_SFCUPDATE PROGRAM ON WCOSS2.
+
+rm -f *.o *.mod emcsfc_sfcupdate ../../exec/emcsfc_sfcupdate
+ftn -O0 -convert big_endian -r8 -i4 -FR -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c program_setup.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -I/apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/include -c read_data_regional.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c read_data.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c process_data.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -I/apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/include -c write_data_regional.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c sfccycle2.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c grib_utils.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -c sfcupdate.f
+ftn -O0 -convert big_endian -r8 -i4 -FR -o emcsfc_sfcupdate program_setup.o read_data_regional.o read_data.o process_data.o write_data_regional.o sfccycle2.o grib_utils.o sfcupdate.o   /apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/lib/liblandsfcutil_d.a /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_d.a /apps/ops/prod/libs/intel/19.1.3.304/cray-mpich/8.1.4/nemsio/2.5.2/lib/libnemsio.a /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_d.a /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a
+/usr/bin/install -c -d ../../exec
+/usr/bin/install -c emcsfc_sfcupdate ../../exec
+rm -f *.o *.mod emcsfc_snow2mdl ../../exec/emcsfc_snow2mdl
+
+BUILD EMCSFC_SNOW2MDL PROGRAM ON WCOSS2.
+
+rm -f *.o *.mod emcsfc_snow2mdl ../../exec/emcsfc_snow2mdl
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -c program_setup.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c model_grid.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c snowdat.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c snow2mdl.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -c driver.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c grib_utils.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -o emcsfc_snow2mdl driver.o program_setup.o snowdat.o model_grid.o grib_utils.o snow2mdl.o  /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_d.a /apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/lib/libip_d.a /apps/ops/prod/libs/intel/19.1.3.304/sp/2.3.3/lib/libsp_d.a /apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/lib/liblandsfcutil_d.a /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_d.a /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a
+/usr/bin/install -c -d ../../exec
+/usr/bin/install -c emcsfc_snow2mdl ../../exec
+rm -f *.o *.mod emcsfc_sst2mdl ../../exec/emcsfc_sst2mdl
+
+BUILD EMCSFC_SST2MDL PROGRAM ON WCOSS2.
+
+rm -f *.o *.mod emcsfc_sst2mdl ../../exec/emcsfc_sst2mdl
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -c program_setup.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c sstdat.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c model_grid.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -I/apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/include_d -c sst2mdl.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -I/apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/include_d -c grib_utils.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -c driver.f
+ftn -O0 -r8 -i4 -FR -qopenmp -convert big_endian -assume byterecl -o emcsfc_sst2mdl program_setup.o sstdat.o model_grid.o sst2mdl.o grib_utils.o driver.o  /apps/ops/prod/libs/intel/19.1.3.304/g2/3.4.5/lib64/libg2_d.a /apps/ops/prod/libs/intel/19.1.3.304/ip/3.3.3/lib/libip_d.a /apps/ops/prod/libs/intel/19.1.3.304/sp/2.3.3/lib/libsp_d.a /apps/ops/prod/libs/intel/19.1.3.304/landsfcutil/2.4.1/lib/liblandsfcutil_d.a /apps/ops/prod/libs/intel/19.1.3.304/bacio/2.4.1/lib/libbacio_4.a /apps/ops/prod/libs/intel/19.1.3.304/w3nco/2.4.1/lib/libw3nco_d.a /apps/ops/prod/libs/intel/19.1.3.304/w3emc/2.9.1/lib64/libw3emc_d.a /apps/spack/jasper/2.0.25/intel/19.1.3.304/sjib74krrorkyczqpqah4tvewmlnqdx4/lib64/libjasper.a /apps/spack/libpng/1.6.37/intel/19.1.3.304/4ohkronuhlyherusoszzrmur5ewvlwzh/lib/libpng.a /apps/spack/zlib/1.2.11/intel/19.1.3.304/hjotqkckeoyt6j6tibalwzrlfljcjtdh/lib/libz.a
+/usr/bin/install -c -d ../../exec
+/usr/bin/install -c emcsfc_sst2mdl ../../exec
+
+DONE BUILDING EMCSFC PROGRAMS
