@@ -115,7 +115,22 @@ export GRIB=hiresf
 export type=nam_priconest
 echo "$HOMEnam/scripts/exnam_nawips.sh $type $GRIB $GRIB1 $finc $fend" >> $DATA/poescript
 #################################################################
+# Execute the script to make Hawaii GEMPAK grids
+mkdir -p $DATA/nam_hawaiinest
+cd $DATA/nam_hawaiinest
 
+# Copy model specific GEMPAK tables into working directory
+#
+cp ${NAMFIXgem}/namnests_ncepgrib129.tbl ncepgrib129.tbl
+cp ${NAMFIXgem}/namnests_ncepgrib2.tbl ncepgrib2.tbl
+cp ${NAMFIXgem}/namnests_wmogrib2.tbl wmogrib2.tbl
+cp ${NAMFIXgem}/namnests_vcrdgrib1.tbl vcrdgrib1.tbl
+
+cd $DATA
+export GRIB=hiresf
+export type=nam_hawaiinest
+echo "$HOMEnam/scripts/exnam_nawips.sh $type $GRIB $GRIB1 $finc $fend" >> $DATA/poescript
+#################################################################
 cat poescript
 
 chmod 775 $DATA/poescript
