@@ -1,0 +1,60 @@
+NAM v4.2.1 - released 10/25/2022
+
+Google docs version of release notes at: 
+https://docs.google.com/document/d/1fipNoaYvE0DfeYrW9aByvq__pEbuEXJBZbGmGwZqAbg/edit?usp=sharing
+
+#####################
+Update overview 
+#####################
+
+* Adds generation of NAM Hawaii nest GEMPAK files.
+
+#####################
+Obtaining the package
+#####################
+
+Clone it with this command (but change nam.v4.2.1 to whatever you want to call it 
+in the directory that it is cloned into):
+ 
+git clone -b v4.2.1 https://github.com/MatthewPyle-NOAA/NAM.git nam.v4.2.1
+ 
+The changes delivered do not require building the code, but if a fresh build is desired, 
+these are the basic building steps (courtesy of Eric Rogers in his 4.2.0 delivery):
+
+IMPORTANT NOTE for SPA: Before compiling the NAM codes, remove any module loads you may 
+be doing in your .bashrc file login environment. Back in September I had aborts on 
+Cactus with the NAM GSI, which Carolyn Pasti and Russ Treadon could not reproduce. 
+We determined that they had no module loads in their Cactus .bashrc files, while I did. 
+When I removed the module loads from my .bashrc file, my NAM GSI aborts went away. 
+The NAM GSI build does run `module purge` before it compiles, but the implication was
+that it was not thorough enough. The basic cause of this problem is unsolved and as far 
+as I know GDIT has not worked on the ticket I sent in for a while. I do not know if 
+this is still a problem but it is best to err on the side of caution. 
+
+./sorc/make_all.sh script compiles all codes in the ./sorc directory
+
+./sorc/make_all_clean.sh cleans all codes and removes all executables from the 
+./exec directory.
+
+./util/sorc/make_all.sh compiles all the codes in the ./util/sorc directory 
+ 
+#############################
+Modified files:
+#############################
+
+jobs/JNAM_GEMPAK_NEST 
+
+Adds a block for the Hawaii Nest so GEMPAK files get created for this nest as well.
+
+./tm00/gempak/jnam_gempak_nest.ecf
+
+Increases the task count from 5 to 6 to handle the additional domain being processed 
+by the job.
+
+
+#############################
+Resource changes:
+#############################
+
+Increases the task count for the JNAM_GEMPAK_NEST job from 5 to 6, but should 
+not impact timing.
