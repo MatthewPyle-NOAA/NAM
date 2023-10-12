@@ -2,17 +2,17 @@
 
 <!DOCTYPE workflow [
 
-<!ENTITY STARTYEAR "2022">
-<!ENTITY STARTMONTH "05">
-<!ENTITY STARTDAY "25">
-<!ENTITY STARTHOUR "18">
+<!ENTITY STARTYEAR "2023">
+<!ENTITY STARTMONTH "10">
+<!ENTITY STARTDAY "12">
+<!ENTITY STARTHOUR "12">
 
-<!ENTITY ENDYEAR "2022">
-<!ENTITY ENDMONTH "05">
-<!ENTITY ENDDAY "26">
+<!ENTITY ENDYEAR "2023">
+<!ENTITY ENDMONTH "10">
+<!ENTITY ENDDAY "12">
 <!ENTITY ENDHOUR "18">
 
-<!ENTITY USER "Eric.Rogers">
+<!ENTITY USER "Matthew.Pyle">
 <!ENTITY ACCOUNT "NAM-DEV">
 <!ENTITY ACCOUNT2 "NAM-DEV">
 <!ENTITY QUEUE_NOSHARE "dev">
@@ -21,25 +21,25 @@
 <!ENTITY QUEUE_FORECAST "dev">
 
 <!ENTITY ENVIR "para">
-<!ENTITY NAM_VER "v4.2.0">
+<!ENTITY NAM_VER "v4.2.5">
 <!ENTITY NET "nam">
 <!ENTITY RUN "nam">
-<!ENTITY NWROOT "/lfs/h2/emc/lam/noscrub/Eric.Rogers">
-<!ENTITY PACKAGEROOT "/lfs/h2/emc/lam/noscrub/Eric.Rogers">
-<!ENTITY HOMEnam "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto">
-<!ENTITY USHnam "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto/ush">
-<!ENTITY JOBSnam "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto/jobs">
-<!ENTITY HOMEjobs "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto/jobs">
+<!ENTITY NWROOT "/lfs/h2/emc/lam/noscrub/Matthew.Pyle">
+<!ENTITY PACKAGEROOT "/lfs/h2/emc/lam/noscrub/Matthew.Pyle">
+<!ENTITY HOMEnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5">
+<!ENTITY USHnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/ush">
+<!ENTITY JOBSnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
+<!ENTITY HOMEjobs "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
 <!ENTITY COMDATEROOT "/lfs/h1/ops/prod/com">
-<!ENTITY GESDIR "/lfs/h2/emc/ptmp/Eric.Rogers/para/com/nam/v4.2/nwges">
-<!ENTITY COMOUT "/lfs/h2/emc/ptmp/Eric.Rogers/para/com/nam/v4.2">
+<!ENTITY GESDIR "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2/nwges">
+<!ENTITY COMOUT "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2">
 <!ENTITY COMOUTnco "/lfs/h1/ops/prod/com/nam/v4.2/nam">
 <!ENTITY COM_PREPBUFR "/lfs/h1/ops/prod/com/obsproc/v1.0"> <!-- Only relevant for real time runs -->
 <!ENTITY COM_PREPBUFR_TM00 "/lfs/h1/ops/prod/com/obsproc/v1.0"> <!-- Only relevant for real time runs -->
 <!ENTITY COMINrap "/lfs/h1/ops/prod/com/rap/v5.1">
-<!ENTITY COMNAM "/lfs/h2/emc/ptmp/Eric.Rogers/para/com/nam/v4.2">
-<!ENTITY LOG_DIR "/lfs/h2/emc/ptmp/Eric.Rogers/output_para"> <!-- Where all job stdout/stderr goes -->
-<!ENTITY DATAROOT "/lfs/h2/emc/stmp/Eric.Rogers/tmp"> <!-- Where all tasks run to specify -->
+<!ENTITY COMNAM "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2">
+<!ENTITY LOG_DIR "/lfs/h2/emc/ptmp/Matthew.Pyle/output_para"> <!-- Where all job stdout/stderr goes -->
+<!ENTITY DATAROOT "/lfs/h2/emc/stmp/Matthew.Pyle/tmp"> <!-- Where all tasks run to specify -->
 <!--  *****************************Forecast Lengths*********************************  -->
 <!ENTITY FMAX_CATCHUP_PARENT "84">
 <!ENTITY CATCHUP_PARENT_FHR_LIST "00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84">
