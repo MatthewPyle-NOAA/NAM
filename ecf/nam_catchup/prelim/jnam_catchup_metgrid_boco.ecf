@@ -1,6 +1,6 @@
 #PBS -N nam_catchup_metgrid_boco_%CYC%
 #PBS -j oe
-#PBS -l select=1:ncpus=6:mem=12GB
+#PBS -l select=1:ncpus=6:mem=24GB
 #PBS -q %QUEUE%
 #PBS -S /bin/bash
 #PBS -l walltime=00:30:00

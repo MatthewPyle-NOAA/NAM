@@ -133,7 +133,8 @@ while [ $fhcnt -le $fend ] ; do
   while [ $icnt -lt 1000 ]
   do
     if [ -r $GRIBIN_chk ] ; then
-      sleep 20
+      # JY sleep 20
+      sleep 5
       break
     else
       let "icnt=icnt+1"

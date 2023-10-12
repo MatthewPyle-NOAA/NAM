@@ -7,6 +7,6 @@ rm -f *.o *.mod emcsfc_ice2mdl ../../exec/emcsfc_ice2mdl
 rm -f *.o *.mod emcsfc_sfcupdate ../../exec/emcsfc_sfcupdate
 rm -f *.o *.mod emcsfc_snow2mdl ../../exec/emcsfc_snow2mdl
 rm -f *.o *.mod emcsfc_sst2mdl ../../exec/emcsfc_sst2mdl
-rm: cannot remove '../exec/*': No such file or directory
 
 DONE BUILDING EMCSFC PROGRAMS
+No such file or directory
