@@ -4,13 +4,13 @@
 
 <!ENTITY STARTYEAR "2023">
 <!ENTITY STARTMONTH "10">
-<!ENTITY STARTDAY "12">
+<!ENTITY STARTDAY "13">
 <!ENTITY STARTHOUR "12">
 
 <!ENTITY ENDYEAR "2023">
 <!ENTITY ENDMONTH "10">
-<!ENTITY ENDDAY "12">
-<!ENTITY ENDHOUR "18">
+<!ENTITY ENDDAY "13">
+<!ENTITY ENDHOUR "12">
 
 <!ENTITY USER "Matthew.Pyle">
 <!ENTITY ACCOUNT "NAM-DEV">
@@ -20,7 +20,7 @@
 <!ENTITY QUEUE "dev">
 <!ENTITY QUEUE_FORECAST "dev">
 
-<!ENTITY ENVIR "prod">
+<!ENTITY ENVIR "para">
 <!ENTITY NAM_VER "v4.2.5">
 <!ENTITY NET "nam">
 <!ENTITY RUN "nam">
@@ -31,7 +31,7 @@
 <!ENTITY JOBSnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
 <!ENTITY HOMEjobs "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
 <!ENTITY COMDATEROOT "/lfs/h1/ops/prod/com">
-<!ENTITY GESDIR "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2/nwges">
+<!ENTITY GESIN "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2/nwges">
 <!ENTITY COMOUT "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2">
 <!ENTITY COMOUTnco "/lfs/h1/ops/prod/com/nam/v4.2/nam">
 <!ENTITY COM_PREPBUFR "/lfs/h1/ops/prod/com/obsproc/v1.0"> <!-- Only relevant for real time runs -->
@@ -154,7 +154,7 @@
 <!ENTITY POST_RESOURCES_GOES_PARENT "<walltime>04:00:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY POST_NODES_GOESTB_CONUS "1:ppn=128:tpp=1">  <!-- jobsub_post_goestb -->
-<!ENTITY POST_PROCS_GOESTB_PARENT "128">
+<!ENTITY POST_PROCS_GOESTB_CONUS "128">
 <!ENTITY POST_RESOURCES_GOES_CONUS "<walltime>04:00:00</walltime><native>-l place=vscatter:excl</native>">
 
     <!-- ********* CATCHUP CYCLE RESOURCES ********* -->
@@ -217,6 +217,9 @@
 <!ENTITY CATCHUP_RUNNAM_SFCUPDATE_RESOURCES "<walltime>00:05:00</walltime><memory>8GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NODES "9:ppn=16:tpp=8">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_PROCS "144">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_PPN "16">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_THREADS "8">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY CATCHUP_RUNNAM_GEMPAK_NODES "1:ppn=6">  <!-- jobsub_gempak -->
@@ -240,9 +243,15 @@
 <!ENTITY CATCHUP_RUNNAM_SFCUPDATE_NEST_RESOURCES "<walltime>00:05:00</walltime><memory>10GB</memory>">
  
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_NODES "11:ppn=16:tpp=8">  <!-- runnamrr${cyc}_analysis_nest.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_PROCS "176">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_PPN "16">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS "8">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_NODES "4:ppn=32:tpp=4">  <!-- runnamrr${cyc}_analysis_nest.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_PROCS "96">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_PPN "32">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_THREADS "4">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY CATCHUP_RUNNAM_GEMPAK_NEST_NODES "1:ppn=5">  <!-- jobsub_gempak_nest -->
@@ -694,7 +703,7 @@
         <taskdep task="prep_catchup_parent"/>
         <or>
           <!-- For CATCHUP cycles we need the previous CATCHUP cycle's analysis rst files to begin -->
-          <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESDIR;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_nemsio.tm01</cyclestr></datadep>
+          <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_nemsio.tm01</cyclestr></datadep>
           <!-- We can use whatever resides in nam.hold but that is much less desirable so we are willing to wait -->
           <timedep><cyclestr offset="&TM02_ANALYSIS_OFFSET_CATCHUP;">@Y@m@d@H@M@S</cyclestr></timedep>
         </or>
@@ -919,7 +928,7 @@
           <taskdep task="prep_catchup_#domain#nest"/>
           <or>
             <!-- For CATCHUP cycles we need the previous CATCHUP cycle's analysis rst files to begin -->                                                           
-            <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESDIR;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_#domain#nest_nemsio.tm01</cyclestr></datadep>
+            <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_#domain#nest_nemsio.tm01</cyclestr></datadep>
             <!-- We can use whatever resides in nam.hold but that is much less desirable so we are willing to wait -->
             <timedep><cyclestr offset="&TM02_ANALYSIS_OFFSET_CATCHUP;">@Y@m@d@H@M@S</cyclestr></timedep>
           </or>
@@ -1654,6 +1663,14 @@
             <value>&NAM_VER;</value>
             </envar>
             <envar>
+              <name>procs</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+            <envar>
               <name>NWROOT</name>
               <value>&NWROOT;</value>
             </envar>
@@ -1793,6 +1810,14 @@
                <name>job</name>
                <value><cyclestr>nam_catchup_post_#domain#_tm#mark#_f#fcsthour#_@H</cyclestr></value>
              </envar>
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
              <envar>
                <name>jobid</name>
                <value><cyclestr>jnam_catchup_post_#domain#_tm#mark#_f#fcsthour#_@H</cyclestr></value>
@@ -1952,6 +1977,14 @@
     <name>HOMEnam</name>
     <value>&HOMEnam;</value>
     </envar>
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS;</value>
+            </envar>
     <envar>
       <name>nam_ver</name>
       <value>&NAM_VER;</value>
@@ -2302,6 +2335,14 @@
     <envar>
     <name>HOMEnam</name>
     <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>procs</name>
+    <value>&CATCHUP_RUNNAM_UNGRIB_FREEFORECAST_PROCS;</value>
+    </envar>
+    <envar>
+    <name>procspernode</name>
+    <value>&CATCHUP_RUNNAM_UNGRIB_FREEFORECAST_PROCS;</value>
     </envar>
     <envar>
       <name>jobid</name>
@@ -4083,6 +4124,15 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
     <name>HOMEnam</name>
     <value>&HOMEnam;</value>
     </envar>
+    <envar>
+    <name>procs</name>
+    <value>&POST_PROCS_GOESTB_CONUS;</value>
+    </envar>
+    <envar>
+    <name>procspernode</name>
+    <value>&POST_PROCS_GOESTB_CONUS;</value>
+    </envar>
+    
     <envar>
       <name>job</name>
       <value><cyclestr>nam_post_goestb_conus_@H</cyclestr></value>
