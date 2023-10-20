@@ -1206,7 +1206,6 @@
     <name>OMP_STACKSIZE</name>
     <value>1G</value>
     </envar>
-
     <envar>
     <name>FI_OFI_RXM_SAR_LIMIT</name>
     <value>3145728</value>
@@ -1453,6 +1452,27 @@
           <name>PDY</name>
           <value><cyclestr>@Y@m@d</cyclestr></value>
         </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
         <dependency>
           <and>
             <taskdep task="forecast_catchup_tm#mark#"/>
@@ -1537,6 +1557,26 @@
             <name>PDY</name>
             <value><cyclestr>@Y@m@d</cyclestr></value>
           </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
           <dependency>
             <and>
               <taskdep task="forecast_catchup_tm#mark#"/>
