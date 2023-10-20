@@ -4,13 +4,13 @@
 
 <!ENTITY STARTYEAR "2023">
 <!ENTITY STARTMONTH "10">
-<!ENTITY STARTDAY "13">
-<!ENTITY STARTHOUR "12">
+<!ENTITY STARTDAY "20">
+<!ENTITY STARTHOUR "06">
 
 <!ENTITY ENDYEAR "2023">
 <!ENTITY ENDMONTH "10">
-<!ENTITY ENDDAY "13">
-<!ENTITY ENDHOUR "12">
+<!ENTITY ENDDAY "20">
+<!ENTITY ENDHOUR "18">
 
 <!ENTITY USER "Matthew.Pyle">
 <!ENTITY ACCOUNT "NAM-DEV">
@@ -39,6 +39,7 @@
 <!ENTITY COMINrap "/lfs/h1/ops/prod/com/rap/v5.1">
 <!ENTITY COMNAM "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2">
 <!ENTITY LOG_DIR "/lfs/h2/emc/ptmp/Matthew.Pyle/output_para"> <!-- Where all job stdout/stderr goes -->
+<!ENTITY JLOGFILE "/lfs/h2/emc/ptmp/Matthew.Pyle/output_para/jlogfile">
 <!ENTITY DATAROOT "/lfs/h2/emc/stmp/Matthew.Pyle/tmp"> <!-- Where all tasks run to specify -->
 <!--  *****************************Forecast Lengths*********************************  -->
 <!ENTITY FMAX_CATCHUP_PARENT "84">
@@ -179,6 +180,10 @@
 <!ENTITY CATCHUP_RUNNAM_NEMSINTERP_RESOURCES "<walltime>00:20:00</walltime><memory>12GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_FORECAST_NODES "16:ppn=64:tpp=2">  <!-- runnamrr${cyc}_forecast.ll -->
+<!ENTITY CATCHUP_RUNNAM_FORECAST_PROCS "1024">
+<!ENTITY CATCHUP_RUNNAM_FORECAST_PPN "64">
+<!ENTITY CATCHUP_RUNNAM_FORECAST_THREADS "2">
+
 <!ENTITY CATCHUP_RUNNAM_FORECAST_RESOURCES "<walltime>00:45:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!-- Specific resources related to 00,06,12,18 free forecast component at tm06 times -->
@@ -217,7 +222,7 @@
 <!ENTITY CATCHUP_RUNNAM_SFCUPDATE_RESOURCES "<walltime>00:05:00</walltime><memory>8GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NODES "9:ppn=16:tpp=8">  <!-- runnamrr${cyc}_analysis.ll -->
-<!ENTITY CATCHUP_RUNNAM_ANALYSIS_PROCS "144">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NTASKS "144">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_PPN "16">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_THREADS "8">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
@@ -243,13 +248,13 @@
 <!ENTITY CATCHUP_RUNNAM_SFCUPDATE_NEST_RESOURCES "<walltime>00:05:00</walltime><memory>10GB</memory>">
  
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_NODES "11:ppn=16:tpp=8">  <!-- runnamrr${cyc}_analysis_nest.ll -->
-<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_PROCS "176">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_NTASKS "176">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_PPN "16">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS "8">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_NODES "4:ppn=32:tpp=4">  <!-- runnamrr${cyc}_analysis_nest.ll -->
-<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_PROCS "96">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_NTASKS "128">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_PPN "32">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_THREADS "4">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
@@ -531,6 +536,14 @@
         <name>tmmark</name>
         <value>tm#mark#</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
       <envar>
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -1037,6 +1050,56 @@
     <value>&HOMEnam;</value>
     </envar>
     <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NTASKS;</value>
+    </envar>
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_PPN;</value>
+    </envar>
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>jlogfile</name>
+    <value>&JLOGFILE;</value>
+    </envar>
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+    <envar>
       <name>job</name>
       <value><cyclestr>nam_catchup_analysis_tm06_@H</cyclestr></value>
     </envar>
@@ -1122,6 +1185,56 @@
       <envar>
         <name>nam_ver</name>
         <value>&NAM_VER;</value>
+      </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+    
+    <envar>
+    <name>jlogfile</name>
+    <value>&JLOGFILE;</value>
+    </envar>
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+      <envar>
+        <name>ntasks</name>
+        <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_NTASKS;</value>
+      </envar>
+      <envar>
+        <name>ppn</name>
+        <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_PPN;</value>
+      </envar>
+      <envar>
+        <name>threads</name>
+        <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
       </envar>
       <envar>
         <name>NWROOT</name>
@@ -1210,6 +1323,44 @@
         <envar>
           <name>NWROOT</name>
           <value>&NWROOT;</value>
+        </envar>
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+        <envar>
+         <name>OMP_STACKSIZE</name>
+         <value>1G</value>
+         </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+        <envar>
+          <name>threads</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_THREADS;</value>
+        </envar>
+        <envar>
+          <name>OMP_NUM_THREADS</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_THREADS;</value>
+        </envar>
+        <envar>
+          <name>ntasks</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_PROCS;</value>
+        </envar>
+
+        <envar>
+          <name>ppn</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_PPN;</value>
         </envar>
         <envar>
           <name>PACKAGEROOT</name>
@@ -1350,6 +1501,14 @@
             <name>nam_ver</name>
             <value>&NAM_VER;</value>
           </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
           <envar>
             <name>NWROOT</name>
             <value>&NWROOT;</value>
@@ -2497,6 +2656,14 @@
         <name>PACKAGEROOT</name>
         <value>&PACKAGEROOT;</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
       <envar>
         <name>COMDATEROOT</name>
         <value>&COMDATEROOT;</value>
@@ -2556,6 +2723,52 @@
     <envar>
     <name>HOMEnam</name>
     <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_NTASKS;</value>
+    </envar>
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_PPN;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_THREADS;</value>
     </envar>
           <envar>
             <name>jobid</name>
