@@ -1939,6 +1939,14 @@
               <name>jobid</name>
               <value><cyclestr>jnam_catchup_prdgen_tm#mark#_f#fcsthour#_@H</cyclestr></value>
             </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
             <envar>
               <name>nam_ver</name>
             <value>&NAM_VER;</value>
@@ -2009,6 +2017,14 @@
                <name>job</name>
                <value><cyclestr>nam_catchup_post_#domain#_tm#mark#_f#fcsthour#_@H</cyclestr></value>
              </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
+    </envar>
             <envar>
               <name>procs</name>
               <value>&POST_PROCS_NEST;</value>
@@ -2111,6 +2127,14 @@
     <envar>
     <name>HOMEnam</name>
     <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
     </envar>
           <envar>
             <name>PACKAGEROOT</name>
@@ -2526,6 +2550,14 @@
     <envar>
       <name>envir</name>
       <value>&ENVIR;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value>&COMOUT;</value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value>&COMOUT;</value>
     </envar>
     <envar>
       <name>job</name>
