@@ -4,12 +4,12 @@
 
 <!ENTITY STARTYEAR "2023">
 <!ENTITY STARTMONTH "10">
-<!ENTITY STARTDAY "23">
+<!ENTITY STARTDAY "24">
 <!ENTITY STARTHOUR "06">
 
 <!ENTITY ENDYEAR "2023">
 <!ENTITY ENDMONTH "10">
-<!ENTITY ENDDAY "23">
+<!ENTITY ENDDAY "24">
 <!ENTITY ENDHOUR "06">
 
 <!ENTITY USER "Matthew.Pyle">
@@ -538,11 +538,11 @@
       </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
       <envar>
         <name>PDY</name>
@@ -1084,11 +1084,11 @@
 
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>jlogfile</name>
@@ -1187,11 +1187,11 @@
       </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>OMP_NUM_THREADS</name>
@@ -1332,11 +1332,11 @@
          </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
 
         <envar>
@@ -1475,21 +1475,25 @@
     <name>OMP_STACKSIZE</name>
     <value>1G</value>
     </envar>
+
     <envar>
     <name>FI_OFI_RXM_SAR_LIMIT</name>
     <value>3145728</value>
     </envar>
+
     <envar>
     <name>MPICH_COLL_OPT_OFF</name>
     <value>1</value>
     </envar>
+
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
+
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
 
         <dependency>
@@ -1542,11 +1546,11 @@
           </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
           <envar>
             <name>NWROOT</name>
@@ -1761,34 +1765,42 @@
     <name>ntasks</name>
     <value>&CATCHUP_RUNNAM_ANALYSIS_NTASKS;</value>
     </envar>
+
     <envar>
     <name>ppn</name>
     <value>&CATCHUP_RUNNAM_ANALYSIS_PPN;</value>
     </envar>
+
     <envar>
     <name>threads</name>
     <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
     </envar>
+
     <envar>
     <name>OMP_NUM_THREADS</name>
     <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
     </envar>
+
     <envar>
     <name>OMP_PLACES</name>
     <value>cores</value>
     </envar>
+
     <envar>
     <name>OMP_STACKSIZE</name>
     <value>1G</value>
     </envar>
+
     <envar>
     <name>FI_OFI_RXM_SAR_LIMIT</name>
     <value>3145728</value>
     </envar>
+
     <envar>
     <name>MPICH_COLL_OPT_OFF</name>
     <value>1</value>
     </envar>
+
         <dependency>
           <and>
             <taskdep task="main_catchup_tm00"/>
@@ -1959,15 +1971,16 @@
             </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
       
             <dependency>
-                <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
+               <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
+	       <!-- datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_01_nemsio.anl.tm#mark#</cyclestr></datadep> -->
             </dependency>
           </task>
       </metatask>
@@ -2013,11 +2026,11 @@
             </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
             <envar>
               <name>nam_ver</name>
@@ -2091,11 +2104,11 @@
              </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
             <envar>
               <name>procs</name>
@@ -2147,6 +2160,7 @@
              </envar>
              <dependency>
                  <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.#numdom#.00#fcsthour#h_00m_00.00s</datadep>
+		 <!-- datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_#domain#nest_nemsio.anl.tm#mark#</cyclestr></datadep> -->
              </dependency>    
            </task>
         </metatask>
@@ -2202,11 +2216,11 @@
     </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
           <envar>
             <name>PACKAGEROOT</name>
@@ -2625,11 +2639,11 @@
     </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
       <name>job</name>
@@ -2802,12 +2816,11 @@
       </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
-    </envar>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
       <envar>
         <name>COMDATEROOT</name>
@@ -2871,11 +2884,11 @@
     </envar>
     <envar>
     <name>COMOUT</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COMIN</name>
-    <value>&COMOUTbase/nam.@Y@m@d;</value>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d;</cyclestr></value>
     </envar>
     <envar>
     <name>COM_PREPBUFR</name>
