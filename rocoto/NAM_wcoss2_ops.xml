@@ -4,12 +4,12 @@
 
 <!ENTITY STARTYEAR "2023">
 <!ENTITY STARTMONTH "10">
-<!ENTITY STARTDAY "24">
+<!ENTITY STARTDAY "25">
 <!ENTITY STARTHOUR "06">
 
 <!ENTITY ENDYEAR "2023">
 <!ENTITY ENDMONTH "10">
-<!ENTITY ENDDAY "24">
+<!ENTITY ENDDAY "25">
 <!ENTITY ENDHOUR "06">
 
 <!ENTITY USER "Matthew.Pyle">
@@ -1979,8 +1979,10 @@
     </envar>
       
             <dependency>
+	    <and>
                <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
-	       <!-- datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_01_nemsio.anl.tm#mark#</cyclestr></datadep> -->
+	       <datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_01_nemsio.anl.tm#mark# </cyclestr></datadep>
+           </and>
             </dependency>
           </task>
       </metatask>
@@ -2159,8 +2161,10 @@
                <value>#domain#</value>
              </envar>
              <dependency>
+	     <and>
                  <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.#numdom#.00#fcsthour#h_00m_00.00s</datadep>
-		 <!-- datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_#domain#nest_nemsio.anl.tm#mark#</cyclestr></datadep> -->
+		 <datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_#domain#nest_nemsio.anl.tm#mark#</cyclestr></datadep>
+		 </and>
              </dependency>    
            </task>
         </metatask>
