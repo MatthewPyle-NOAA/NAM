@@ -4,12 +4,12 @@
 
 <!ENTITY STARTYEAR "2023">
 <!ENTITY STARTMONTH "10">
-<!ENTITY STARTDAY "28">
-<!ENTITY STARTHOUR "12">
+<!ENTITY STARTDAY "29">
+<!ENTITY STARTHOUR "06">
 
 <!ENTITY ENDYEAR "2023">
 <!ENTITY ENDMONTH "10">
-<!ENTITY ENDDAY "28">
+<!ENTITY ENDDAY "29">
 <!ENTITY ENDHOUR "12">
 
 <!ENTITY USER "Matthew.Pyle">
@@ -209,7 +209,10 @@
 <!ENTITY CATCHUP_RUNNAM_FREEFORECAST_THREADS "2"> 
 <!ENTITY CATCHUP_RUNNAM_FREEFORECAST_RESOURCES "<walltime>02:45:00</walltime><native>-l place=vscatter:excl</native>">
 
-<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_NODES "4:ppn=64:tpp=2">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_NODES "4:ppn=128:tpp=1">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PROCS "512">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PPN "128">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_THREADS "1">
 <!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
    <!-- RESOURCES *SPECIFIC* FOR PARENT DOMAIN -->
@@ -3323,7 +3326,6 @@
     <name>threads</name>
     <value>&CATCHUP_RUNNAM_FREEFORECAST_THREADS;</value>
     </envar>
-
     <envar>
     <name>OMP_NUM_THREADS</name>
     <value>&CATCHUP_RUNNAM_FREEFORECAST_THREADS;</value>
@@ -3446,6 +3448,39 @@
     <envar>
       <name>tmmark</name>
       <value>tm00</value>
+    </envar>
+    <!-- need resource information here -->
+    <envar>
+      <name>ntasks</name>
+      <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PROCS;</value>
+    </envar>
+    
+    <envar>
+      <name>ppn</name>
+      <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PPN;</value>
+    </envar>
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+        <envar>
+         <name>OMP_STACKSIZE</name>
+         <value>1G</value>
+         </envar>
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_THREADS;</value>
     </envar>
 
     <envar>
@@ -3724,6 +3759,11 @@
       <envar>
         <name>fcsthrs</name>
         <value>#fcsthour#</value>
+      </envar>
+
+      <envar>
+      <name>GRB2INDEX</name>
+      <value>/apps/ops/prod/libs/intel/19.1.3.304/grib_util/1.2.2/bin/grb2index</value>
       </envar>
 
     <envar>
@@ -4701,6 +4741,16 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>nam_ver</name>
           <value>&NAM_VER;</value>
         </envar>
+
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+
         <envar>
           <name>NWROOT</name>
           <value>&NWROOT;</value>
