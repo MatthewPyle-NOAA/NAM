@@ -79,7 +79,8 @@ WORK_DIR=$DATA/sfcupdate
 
 SST_GLOBAL_FILE_NAME="rtgssthr_grb_0.083"
 NESDIS_FILE_NAME="imssnow96.grb"
-AFWA_NH_FILE_NAME="NPR.SNWN.SP.S1200.MESH16"
+# AFWA_NH_FILE_NAME="NPR.SNWN.SP.S1200.MESH16"
+AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${PDY}_DT.${CYCSICE_UPDATE}00_DF.GR2"
 SST_REG_FILE_NAME=""
 
 #---------------------------------------------------------------------
@@ -92,35 +93,36 @@ then
   CHKDATE=${CYCLE_TIME}
   OLD_DATE_AFWA=`$NDATE -${AFWA_AGE_IN_HOURS} $CYCLE_TIME`
   OLD_DATE_8=$OLD_DATE_AFWA
-  AFWA_NH_FILE=""
+  AFWA_GLB_FILE=""
   
 # look for afwa data.  if file exists, check the internal
-# date stamp.  if too old, set AFWA_NH_FILE as empty
+# date stamp.  if too old, set AFWA_GLB_FILE as empty
 # string.  this tells snow2mdl program to not use afwa data.
  
   while ((CHKDATE >= OLD_DATE_8)) ; do
     # this is phase 3 dcom
-    AFWA_DIR="${DCOMROOT}/${CHKDATE}/wgrbbul/"
-    if [[ (-s ${AFWA_DIR}/${AFWA_NH_FILE_NAME}) ]]
+#    AFWA_DIR="${DCOMROOT}/${CHKDATE}/wgrbbul/"
+     AFWA_DIR="${DCOMROOT}/../../dev/dcom/${CHKDATE}/wgrbbul/557thWW_snow"
+    if [[ (-s ${AFWA_DIR}/${AFWA_GLB_FILE_NAME}) ]]
     then
-      TEMP_DATE=`$WGRIB -4yr ${AFWA_DIR}/${AFWA_NH_FILE_NAME} | head -1`
+      TEMP_DATE=`$WGRIB2 -vt ${AFWA_DIR}/${AFWA_GLB_FILE_NAME} | head -n1 | awk -F= '{print $2}'`
       typeset -L10 AFWA_GRIB_DATE
       AFWA_GRIB_DATE=${TEMP_DATE#*:d=}
       if ((AFWA_GRIB_DATE > OLD_DATE_AFWA))
       then
-        AFWA_NH_FILE=${AFWA_DIR}/${AFWA_NH_FILE_NAME}
+        AFWA_GLB_FILE=${AFWA_DIR}/${AFWA_GLB_FILE_NAME}
       fi
       break
     fi
     CHKDATE=`$NDATE -24 ${CHKDATE}00`
   done
 
-  if [[ -z ${AFWA_NH_FILE} ]]
+  if [[ -z ${AFWA_GLB_FILE} ]]
   then
     echo NO CURRENT AFWA DATA AVAILABLE.
   else
     echo AFWA DATA AVAILABLE
-    echo AFWA NH DATA $AFWA_NH_FILE
+    echo AFWA GLB DATA $AFWA_GLB_FILE
   fi
 
 # NESDIS DATA
@@ -161,14 +163,14 @@ then
      else  # if nesdis is old, but not too old, then don't use afwa
            # data by itself even if it is current.
        NESDIS_FILE=""
-       AFWA_NH_FILE=""
+       AFWA_GLB_FILE=""
      fi
      break
    fi
    CHKDATE=`$NDATE -24 ${CHKDATE}00`
  done
 
- if [[ -z $NESDIS_FILE && -z $AFWA_NH_FILE ]]
+ if [[ -z $NESDIS_FILE && -z $AFWA_GLB_FILE ]]
  then
    echo NO DATA AVAILABLE. DONT RUN SNOW PROGRAM.
  else
@@ -178,8 +180,8 @@ then
        autosnow_file=""
        nesdis_snow_file="${NESDIS_FILE}"
        nesdis_lsmask_file=""
-       afwa_snow_global_file=""
-       afwa_snow_nh_file="${AFWA_NH_FILE}"
+       afwa_snow_global_file="${AFWA_GLB_FILE}"
+       afwa_snow_nh_file=""
        afwa_snow_sh_file=""
        afwa_lsmask_nh_file=""
        afwa_lsmask_sh_file=""
