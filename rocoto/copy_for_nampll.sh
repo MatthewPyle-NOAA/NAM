@@ -14,8 +14,8 @@ set -x
 
 mkdir -p /lfs/h2/emc/stmp/${USER}/tmp
 
-export PDY=20231012
-export cyc=12
+export PDY=20231107
+export cyc=06
 export cycle=t${cyc}z
 
 export nam_ver=v4.2

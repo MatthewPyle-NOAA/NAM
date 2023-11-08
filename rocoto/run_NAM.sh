@@ -12,11 +12,17 @@ module load cray-mpich/${cray_mpich_ver}
 module load cray-pals/${cray_pals_ver}
 module load libjpeg/${libjpeg_ver}
 module load grib_util/${grib_util_ver}
+module load util_shared/${util_shared_ver}
 
 module use /apps/ops/test/nco/modulefiles/
 module load core/rocoto/1.3.5
 
-module list
+# module list
+#
+
+echo GRB2INDEX is $GRB2INDEX
+
+which wgrib
 
 mkdir -p /lfs/h2/emc/ptmp/Matthew.Pyle/output_para
 mkdir -p /lfs/h2/emc/stmp/Matthew.Pyle/tmp
