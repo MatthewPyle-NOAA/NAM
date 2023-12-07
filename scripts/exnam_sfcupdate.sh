@@ -103,9 +103,7 @@ then
 # string.  this tells snow2mdl program to not use afwa data.
  
   while ((CHKDATE >= OLD_DATE_8)) ; do
-    # this is phase 3 dcom
-#    AFWA_DIR="${DCOMROOT}/${CHKDATE}/wgrbbul/"
-    AFWA_DIR="${DCOMROOT}/../../dev/dcom/${CHKDATE}/wgrbbul/557thWW_snow"
+    AFWA_DIR="${DCOMROOT}/${CHKDATE}/wgrbbul/557thWW_snow"
     if [[ (-s ${AFWA_DIR}/${AFWA_GLB_FILE_NAME}) ]]
     then
       TEMP_DATE=`$WGRIB2 -vt ${AFWA_DIR}/${AFWA_GLB_FILE_NAME} | head -n1 | awk -F= '{print $2}'`
