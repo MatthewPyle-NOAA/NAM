@@ -34,6 +34,4 @@ do
 
 done
 
-cp ../exec/*  ../../../exec/.
-
 echo; echo DONE BUILDING EMCSFC PROGRAMS
