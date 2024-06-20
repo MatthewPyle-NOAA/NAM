@@ -14,7 +14,7 @@ set -x
 
 mkdir -p /lfs/h2/emc/stmp/${USER}/tmp
 
-export PDY=20231107
+export PDY=20240620
 export cyc=06
 export cycle=t${cyc}z
 

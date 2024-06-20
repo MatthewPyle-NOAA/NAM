@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-VERFILE=/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/versions
+VERFILE=/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/versions
 . $VERFILE/run.ver
 
 module purge
@@ -28,5 +28,5 @@ mkdir -p /lfs/h2/emc/ptmp/Matthew.Pyle/output_para
 mkdir -p /lfs/h2/emc/stmp/Matthew.Pyle/tmp
 
 rocotorun -v 10 \
-        -w /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/rocoto/NAM_wcoss2_ops.xml \
-	-d /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/rocoto/NAM_wcoss2_ops.db
+        -w /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/rocoto/NAM_wcoss2_ops.xml \
+	-d /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/rocoto/NAM_wcoss2_ops.db

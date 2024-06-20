@@ -2,14 +2,14 @@
 
 <!DOCTYPE workflow [
 
-<!ENTITY STARTYEAR "2023">
-<!ENTITY STARTMONTH "11">
-<!ENTITY STARTDAY "07">
+<!ENTITY STARTYEAR "2024">
+<!ENTITY STARTMONTH "06">
+<!ENTITY STARTDAY "20">
 <!ENTITY STARTHOUR "06">
 
-<!ENTITY ENDYEAR "2023">
-<!ENTITY ENDMONTH "11">
-<!ENTITY ENDDAY "07">
+<!ENTITY ENDYEAR "2024">
+<!ENTITY ENDMONTH "06">
+<!ENTITY ENDDAY "20">
 <!ENTITY ENDHOUR "06">
 
 <!ENTITY USER "Matthew.Pyle">
@@ -21,15 +21,15 @@
 <!ENTITY QUEUE_FORECAST "dev">
 
 <!ENTITY ENVIR "para">
-<!ENTITY NAM_VER "v4.2.5">
+<!ENTITY NAM_VER "v4.2.9">
 <!ENTITY NET "nam">
 <!ENTITY RUN "nam">
 <!ENTITY NWROOT "/lfs/h2/emc/lam/noscrub/Matthew.Pyle">
 <!ENTITY PACKAGEROOT "/lfs/h2/emc/lam/noscrub/Matthew.Pyle">
-<!ENTITY HOMEnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5">
-<!ENTITY USHnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/ush">
-<!ENTITY JOBSnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
-<!ENTITY HOMEjobs "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
+<!ENTITY HOMEnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9">
+<!ENTITY USHnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/ush">
+<!ENTITY JOBSnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/jobs">
+<!ENTITY HOMEjobs "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/jobs">
 <!ENTITY COMDATEROOT "/lfs/h1/ops/prod/com">
 <!ENTITY GESIN "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2/nwges">
 <!ENTITY COMOUTbase "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2">
