@@ -471,7 +471,8 @@ for domain in ${nests}; do
        #--If this domain is the firewx nest domain--#
 
        numchild_firewx=0
-       if [ -s $COMOUT/${RUN}.t${cyc}z.firewx_ijstart.txt ] ; then
+#      if [ -s $COMOUT/${RUN}.t${cyc}z.firewx_ijstart.txt ] ; then
+       if [ -s $COMIN/${RUN}.t${cyc}z.firewx_ijstart.txt ] ; then
          cp $COMOUT/${RUN}.t${cyc}z.firewx_ijstart.txt firewx_ijstart.txt
          export istart=${istart:-`grep i_parent_start firewx_ijstart.txt | awk '{print $2}'`}
          export jstart=${jstart:-`grep j_parent_start firewx_ijstart.txt | awk '{print $2}'`}

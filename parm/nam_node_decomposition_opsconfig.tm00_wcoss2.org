@@ -4,33 +4,33 @@
     # For the parent domain
     if [ "$domain" = parent ]
     then
-        inpes=8
-	jnpes=32
+        inpes=12
+	jnpes=21
 	write_groups=3
 	write_tasks=4
     fi
     # For the nest domains:
      if [ "$domain" = alaska ] ; then
-      inpes=23
-      jnpes=30
+      inpes=19
+      jnpes=36
       write_groups=3
       write_tasks=4
      fi
      if [ "$domain" = conus ] ; then
-      inpes=24
-      jnpes=54
+      inpes=20
+      jnpes=64
       write_groups=3
       write_tasks=12
      fi
      if [ "$domain" = hawaii ] ; then
-      inpes=8
-      jnpes=11
+      inpes=7
+      jnpes=12
       write_groups=2
-      write_tasks=4
+      write_tasks=3
      fi
      if [ "$domain" = prico ] ; then
-      inpes=6
-      jnpes=9
+      inpes=5
+      jnpes=10
       write_groups=2
       write_tasks=4
      fi
