@@ -2,17 +2,17 @@
 
 <!DOCTYPE workflow [
 
-<!ENTITY STARTYEAR "2022">
-<!ENTITY STARTMONTH "05">
-<!ENTITY STARTDAY "25">
-<!ENTITY STARTHOUR "18">
+<!ENTITY STARTYEAR "2023">
+<!ENTITY STARTMONTH "11">
+<!ENTITY STARTDAY "07">
+<!ENTITY STARTHOUR "06">
 
-<!ENTITY ENDYEAR "2022">
-<!ENTITY ENDMONTH "05">
-<!ENTITY ENDDAY "26">
-<!ENTITY ENDHOUR "18">
+<!ENTITY ENDYEAR "2023">
+<!ENTITY ENDMONTH "11">
+<!ENTITY ENDDAY "07">
+<!ENTITY ENDHOUR "06">
 
-<!ENTITY USER "Eric.Rogers">
+<!ENTITY USER "Matthew.Pyle">
 <!ENTITY ACCOUNT "NAM-DEV">
 <!ENTITY ACCOUNT2 "NAM-DEV">
 <!ENTITY QUEUE_NOSHARE "dev">
@@ -21,25 +21,26 @@
 <!ENTITY QUEUE_FORECAST "dev">
 
 <!ENTITY ENVIR "para">
-<!ENTITY NAM_VER "v4.2.0">
+<!ENTITY NAM_VER "v4.2.5">
 <!ENTITY NET "nam">
 <!ENTITY RUN "nam">
-<!ENTITY NWROOT "/lfs/h2/emc/lam/noscrub/Eric.Rogers">
-<!ENTITY PACKAGEROOT "/lfs/h2/emc/lam/noscrub/Eric.Rogers">
-<!ENTITY HOMEnam "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto">
-<!ENTITY USHnam "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto/ush">
-<!ENTITY JOBSnam "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto/jobs">
-<!ENTITY HOMEjobs "/lfs/h2/emc/lam/noscrub/Eric.Rogers/nam.v4.2.0_rocoto/jobs">
+<!ENTITY NWROOT "/lfs/h2/emc/lam/noscrub/Matthew.Pyle">
+<!ENTITY PACKAGEROOT "/lfs/h2/emc/lam/noscrub/Matthew.Pyle">
+<!ENTITY HOMEnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5">
+<!ENTITY USHnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/ush">
+<!ENTITY JOBSnam "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
+<!ENTITY HOMEjobs "/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.5/jobs">
 <!ENTITY COMDATEROOT "/lfs/h1/ops/prod/com">
-<!ENTITY GESDIR "/lfs/h2/emc/ptmp/Eric.Rogers/para/com/nam/v4.2/nwges">
-<!ENTITY COMOUT "/lfs/h2/emc/ptmp/Eric.Rogers/para/com/nam/v4.2">
+<!ENTITY GESIN "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2/nwges">
+<!ENTITY COMOUTbase "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2">
 <!ENTITY COMOUTnco "/lfs/h1/ops/prod/com/nam/v4.2/nam">
 <!ENTITY COM_PREPBUFR "/lfs/h1/ops/prod/com/obsproc/v1.0"> <!-- Only relevant for real time runs -->
 <!ENTITY COM_PREPBUFR_TM00 "/lfs/h1/ops/prod/com/obsproc/v1.0"> <!-- Only relevant for real time runs -->
 <!ENTITY COMINrap "/lfs/h1/ops/prod/com/rap/v5.1">
-<!ENTITY COMNAM "/lfs/h2/emc/ptmp/Eric.Rogers/para/com/nam/v4.2">
-<!ENTITY LOG_DIR "/lfs/h2/emc/ptmp/Eric.Rogers/output_para"> <!-- Where all job stdout/stderr goes -->
-<!ENTITY DATAROOT "/lfs/h2/emc/stmp/Eric.Rogers/tmp"> <!-- Where all tasks run to specify -->
+<!ENTITY COMNAM "/lfs/h2/emc/ptmp/Matthew.Pyle/para/com/nam/v4.2">
+<!ENTITY LOG_DIR "/lfs/h2/emc/ptmp/Matthew.Pyle/output_para"> <!-- Where all job stdout/stderr goes -->
+<!ENTITY JLOGFILE "/lfs/h2/emc/ptmp/Matthew.Pyle/output_para/jlogfile">
+<!ENTITY DATAROOT "/lfs/h2/emc/stmp/Matthew.Pyle/tmp"> <!-- Where all tasks run to specify -->
 <!--  *****************************Forecast Lengths*********************************  -->
 <!ENTITY FMAX_CATCHUP_PARENT "84">
 <!ENTITY CATCHUP_PARENT_FHR_LIST "00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84">
@@ -87,8 +88,8 @@
 <!ENTITY START_TIME_HOURLY_ANALYSIS "00:40:00">  <!-- Make sure obs are ready - have this be an <or> dependency with prepbufr data -->
 
 
-<!ENTITY DEADLINE_HOURLY "08:00:00">  <!-- Establishing some completion offset deadlines is probably a good idea -->
-<!ENTITY DEADLINE_CATCHUP "09:00:00">
+<!ENTITY DEADLINE_HOURLY "15:00:00">  <!-- Establishing some completion offset deadlines is probably a good idea -->
+<!ENTITY DEADLINE_CATCHUP "15:00:00">
 
 <!-- This job basically controls the earliest the rest can start -->
 <!-- Remaining times may be irrelevant based on the TM06 start time -->
@@ -120,9 +121,11 @@
 <!ENTITY RUNNAM_SCRUB_RESOURCES "<walltime>00:20:00</walltime><memory>800M</memory><native>-R affinity[core]</native>">
 
 <!ENTITY POST_NODES "1:ppn=28:tpp=1">  <!-- jobsub_post -->
+<!ENTITY POST_PROCS "28">
 <!ENTITY POST_RESOURCES "<walltime>00:20:00</walltime><memory>28GB</memory>">
 
 <!ENTITY PRDGEN_NODES "1:ppn=8">  <!-- jobsub_prdgen -->
+<!ENTITY PRDGEN_PROCS "8">
 <!ENTITY PRDGEN_RESOURCES "<walltime>00:20:00</walltime><memory>28GB</memory>">
 
 <!ENTITY AWIPS_PROC "1:ppn=1">  <!-- jobsub_postsnd_nest -->
@@ -141,15 +144,18 @@
 <!ENTITY POSTSND_RESOURCES_NEST "<walltime>00:05:00</walltime><memory>8GB</memory>">
 
 <!ENTITY POST_NODES_NEST "1:ppn=28:tpp=1">  <!-- jobsub_post_nest -->
+<!ENTITY POST_PROCS_NEST "28">
 <!ENTITY POST_RESOURCES_NEST "<walltime>00:20:00</walltime><memory>100GB</memory>">
 
 <!ENTITY PRDGEN_NODES_NEST "1:ppn=1">  <!-- jobsub_prdgen_nest -->
 <!ENTITY PRDGEN_RESOURCES_NEST "<walltime>00:20:00</walltime><memory>12GB</memory>">
 
 <!ENTITY POST_NODES_GOESTB_PARENT "1:ppn=128:tpp=1">  <!-- jobsub_post_goestb -->
+<!ENTITY POST_PROCS_GOESTB_PARENT "128">
 <!ENTITY POST_RESOURCES_GOES_PARENT "<walltime>04:00:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY POST_NODES_GOESTB_CONUS "1:ppn=128:tpp=1">  <!-- jobsub_post_goestb -->
+<!ENTITY POST_PROCS_GOESTB_CONUS "128">
 <!ENTITY POST_RESOURCES_GOES_CONUS "<walltime>04:00:00</walltime><native>-l place=vscatter:excl</native>">
 
     <!-- ********* CATCHUP CYCLE RESOURCES ********* -->
@@ -158,18 +164,26 @@
 <!ENTITY CATCHUP_RUNNAM_MAIN_RESOURCES "<walltime>00:15:00</walltime><memory>8GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_CHGRES_NODES "1:ppn=14">            <!-- runnamrr${cyc}_global_chgres.ll -->
+<!ENTITY CATCHUP_RUNNAM_CHGRES_PROCS "14">
 <!ENTITY CATCHUP_RUNNAM_CHGRES_RESOURCES "<walltime>00:10:00</walltime><memory>4GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_UNGRIB_NODES "1:ppn=7">           <!-- runnamrr${cyc}_ungrib_boco.ll -->
+<!ENTITY CATCHUP_RUNNAM_UNGRIB_PROCS "7">
 <!ENTITY CATCHUP_RUNNAM_UNGRIB_RESOURCES "<walltime>00:20:00</walltime><memory>12GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_METGRID_NODES "1:ppn=6">           <!-- runnamrr${cyc}_ungrib_boco.ll -->
+<!ENTITY CATCHUP_RUNNAM_METGRID_PROCS "6">
 <!ENTITY CATCHUP_RUNNAM_METGRID_RESOURCES "<walltime>00:20:00</walltime><memory>12GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_NEMSINTERP_NODES "1:ppn=6">           <!-- runnamrr${cyc}_ungrib_boco.ll -->
+<!ENTITY CATCHUP_RUNNAM_NEMSINTERP_PROCS "6">
 <!ENTITY CATCHUP_RUNNAM_NEMSINTERP_RESOURCES "<walltime>00:20:00</walltime><memory>12GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_FORECAST_NODES "16:ppn=64:tpp=2">  <!-- runnamrr${cyc}_forecast.ll -->
+<!ENTITY CATCHUP_RUNNAM_FORECAST_PROCS "1024">
+<!ENTITY CATCHUP_RUNNAM_FORECAST_PPN "64">
+<!ENTITY CATCHUP_RUNNAM_FORECAST_THREADS "2">
+
 <!ENTITY CATCHUP_RUNNAM_FORECAST_RESOURCES "<walltime>00:45:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!-- Specific resources related to 00,06,12,18 free forecast component at tm06 times -->
@@ -178,23 +192,33 @@
 <!ENTITY CATCHUP_RUNNAM_MAIN_FREEFORECAST_RESOURCES "<walltime>00:15:00</walltime><memory>8GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_UNGRIB_FREEFORECAST_NODES "1:ppn=7">           <!-- runnaamrr${cyc}_ungrib_boco.ll -->
+<!ENTITY CATCHUP_RUNNAM_UNGRIB_FREEFORECAST_PROCS "7">           
 <!ENTITY CATCHUP_RUNNAM_UNGRIB_FREEFORECAST_RESOURCES "<walltime>00:20:00</walltime><memory>12GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_METGRID_FREEFORECAST_NODES "1:ppn=15">           <!-- runnamrr${cyc}_ungrib_boco.ll -->
+<!ENTITY CATCHUP_RUNNAM_METGRID_FREEFORECAST_PROCS "15">           
 <!ENTITY CATCHUP_RUNNAM_METGRID_FREEFORECAST_RESOURCES "<walltime>00:20:00</walltime><memory>30GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_NEMSINTERP_FREEFORECAST_NODES "1:ppn=14">           <!-- runnamrr${cyc}_ungrib_boco.ll -->
+<!ENTITY CATCHUP_RUNNAM_NEMSINTERP_FREEFORECAST_PROCS "14">
 <!ENTITY CATCHUP_RUNNAM_NEMSINTERP_FREEFORECAST_RESOURCES "<walltime>00:20:00</walltime><memory>28GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_FREEFORECAST_NODES "41:ppn=63:tpp=2">  <!-- runnamrr${cyc}_forecast.ll **FOR THE CATCHUP FREE FORECAST** -->
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PROCS "2583"> 
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PPN "63"> 
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_THREADS "2"> 
 <!ENTITY CATCHUP_RUNNAM_FREEFORECAST_RESOURCES "<walltime>02:45:00</walltime><native>-l place=vscatter:excl</native>">
 
-<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_NODES "4:ppn=64:tpp=2">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_NODES "4:ppn=128:tpp=1">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PROCS "512">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PPN "128">
+<!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_THREADS "1">
 <!ENTITY CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
    <!-- RESOURCES *SPECIFIC* FOR PARENT DOMAIN -->
 
 <!ENTITY CATCHUP_RUNNAM_PREP_NODES "1:ppn=32">            <!-- runnamrr${cyc}_prep.ll -->
+<!ENTITY CATCHUP_RUNNAM_PREP_PROCS "32">            <!-- runnamrr${cyc}_prep.ll -->
 <!ENTITY CATCHUP_RUNNAM_PREP_RESOURCES "<walltime>00:20:00</walltime><memory>100GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_PARTIALCYC_PROC "1:ppn=1">  <!-- runnamrr${cyc}_partialcyc.ll -->
@@ -204,6 +228,9 @@
 <!ENTITY CATCHUP_RUNNAM_SFCUPDATE_RESOURCES "<walltime>00:05:00</walltime><memory>8GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NODES "9:ppn=16:tpp=8">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NTASKS "144">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_PPN "16">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_THREADS "8">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY CATCHUP_RUNNAM_GEMPAK_NODES "1:ppn=6">  <!-- jobsub_gempak -->
@@ -213,9 +240,11 @@
    <!-- RESOURCES *SPECIFIC* FOR CONUSNEST DOMAIN -->
 
 <!ENTITY CATCHUP_RUNNAM_PREP_NEST_NODES "1:ppn=32">            <!-- runnamrr${cyc}_prep_nest.ll -->
+<!ENTITY CATCHUP_RUNNAM_PREP_NEST_PROCS "32">        
 <!ENTITY CATCHUP_RUNNAM_PREP_NEST_RESOURCES "<walltime>00:20:00</walltime><memory>100GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_PREP_NONCYC_NEST_NODES "1:ppn=28">            <!-- runnamrr${cyc}_prep_nest.ll -->
+<!ENTITY CATCHUP_RUNNAM_PREP_NONCYC_NEST_PROCS "28">        
 <!ENTITY CATCHUP_RUNNAM_PREP_NONCYC_NEST_RESOURCES "<walltime>00:20:00</walltime><memory>100GB</memory>">
 
 <!ENTITY CATCHUP_RUNNAM_PARTIALCYC_NEST_PROC "1:ppn=1">  <!-- runnamrr${cyc}_partialcyc_nest.ll -->
@@ -225,9 +254,15 @@
 <!ENTITY CATCHUP_RUNNAM_SFCUPDATE_NEST_RESOURCES "<walltime>00:05:00</walltime><memory>10GB</memory>">
  
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_NODES "11:ppn=16:tpp=8">  <!-- runnamrr${cyc}_analysis_nest.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_NTASKS "176">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_PPN "16">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS "8">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_NODES "4:ppn=32:tpp=4">  <!-- runnamrr${cyc}_analysis_nest.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_NTASKS "128">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_PPN "32">  <!-- runnamrr${cyc}_analysis.ll -->
+<!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_THREADS "4">  <!-- runnamrr${cyc}_analysis.ll -->
 <!ENTITY CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_RESOURCES "<walltime>00:30:00</walltime><native>-l place=vscatter:excl</native>">
 
 <!ENTITY CATCHUP_RUNNAM_GEMPAK_NEST_NODES "1:ppn=5">  <!-- jobsub_gempak_nest -->
@@ -241,7 +276,7 @@
 
 <!-- ************* STARTING THE WORKFLOW  ************* -->
 
-<workflow realtime="T" scheduler="pbspro" cyclethrottle="2" taskthrottle="100" cyclelifespan="00:18:00:00" >
+<workflow realtime="T" scheduler="pbspro" cyclethrottle="2" taskthrottle="100" cyclelifespan="00:23:30:00" >
 
 
   <!-- Start, Stop, Increment -->
@@ -274,12 +309,28 @@
       <value><cyclestr>@H</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>envir</name>
       <value>&ENVIR;</value>
     </envar>
     <envar>
+      <name>DATAROOT</name>
+      <value>&DATAROOT;</value>
+    </envar>
+    <envar>
       <name>job</name>
       <value><cyclestr>nam_catchup_main_@H</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
     </envar>
     <envar>
       <name>jobid</name>
@@ -342,6 +393,10 @@
       <value>&ENVIR;</value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>job</name>
       <value><cyclestr>nam_catchup_ungrib_boco_@H</cyclestr></value>
     </envar>
@@ -372,6 +427,14 @@
     <envar>
       <name>HOMEjobs</name>
       <value>&HOMEjobs;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
     </envar>
     <envar>
       <name>tmmark</name>
@@ -406,6 +469,10 @@
       <value>&ENVIR;</value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>job</name>
       <value><cyclestr>nam_catchup_metgrid_boco_@H</cyclestr></value>
     </envar>
@@ -416,6 +483,14 @@
     <envar>
       <name>tmmark</name>
       <value>tm06</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
     </envar>
     <envar>
       <name>WKDIRNAME</name>
@@ -479,6 +554,10 @@
         <name>job</name>
         <value><cyclestr>nam_catchup_nemsinterp_boco_tm#mark#_@H</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>jobid</name>
         <value><cyclestr>jnam_catchup_nemsinterp_boco_tm#mark#_@H</cyclestr></value>
@@ -487,6 +566,14 @@
         <name>tmmark</name>
         <value>tm#mark#</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <envar>
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -499,6 +586,14 @@
         <name>NWROOT</name>
         <value>&NWROOT;</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <envar>
         <name>PACKAGEROOT</name>
         <value>&PACKAGEROOT;</value>
@@ -545,6 +640,18 @@
       <value><cyclestr>nam_catchup_coldstart_prep_@H</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>procs</name>
+    <value>&CATCHUP_RUNNAM_PREP_PROCS;</value>
+    </envar>
+    <envar>
+    <name>procspernode</name>
+    <value>&CATCHUP_RUNNAM_PREP_PROCS;</value>
+    </envar>
+    <envar>
       <name>jobid</name>
       <value><cyclestr>jnam_catchup_coldstart_prep_@H</cyclestr></value>
     </envar>
@@ -567,6 +674,14 @@
     <envar>
       <name>COMDATEROOT</name>
       <value>&COMDATEROOT;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
     </envar>
     <envar>
       <name>HOMEjobs</name>
@@ -607,6 +722,10 @@
       <value><cyclestr>nam_catchup_coldstart_partialcyc_@H</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>jobid</name>
       <value><cyclestr>jnam_catchup_coldstart_partialcyc_@H</cyclestr></value>
     </envar>
@@ -627,6 +746,14 @@
       <value>&COMDATEROOT;</value>
     </envar>
     <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
       <name>HOMEjobs</name>
       <value>&HOMEjobs;</value>
     </envar>
@@ -643,7 +770,7 @@
         <taskdep task="prep_catchup_parent"/>
         <or>
           <!-- For CATCHUP cycles we need the previous CATCHUP cycle's analysis rst files to begin -->
-          <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESDIR;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_nemsio.tm01</cyclestr></datadep>
+          <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_nemsio.tm01</cyclestr></datadep>
           <!-- We can use whatever resides in nam.hold but that is much less desirable so we are willing to wait -->
           <timedep><cyclestr offset="&TM02_ANALYSIS_OFFSET_CATCHUP;">@Y@m@d@H@M@S</cyclestr></timedep>
         </or>
@@ -672,6 +799,10 @@
     <envar>
       <name>envir</name>
       <value>&ENVIR;</value>
+    </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
     </envar>
     <envar>
       <name>job</name>
@@ -709,6 +840,14 @@
       <name>tmmark</name>
       <value>tm06</value>
     </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
     <dependency>
       <taskdep task="partialcyc_catchup_parent"/>
     </dependency>
@@ -737,9 +876,21 @@
         <value>&ENVIR;</value>
       </envar>
       <envar>
+        <name>procs</name>
+        <value>&CATCHUP_RUNNAM_PREP_NEST_PROCS;</value>
+      </envar>
+      <envar>
+        <name>procspernode</name>
+        <value>&CATCHUP_RUNNAM_PREP_NEST_PROCS;</value>
+      </envar>
+      <envar>
         <name>job</name>
         <value><cyclestr>nam_catchup_coldstart_prep_#domain#_@H</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>jobid</name>
         <value><cyclestr>jnam_catchup_coldstart_prep_#domain#_@H</cyclestr></value>
@@ -768,6 +919,14 @@
         <name>tmmark</name>
         <value>tm06</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <envar>
         <name>domain</name>
         <value>#domain#</value>
@@ -803,6 +962,10 @@
         <name>envir</name>
         <value>&ENVIR;</value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>job</name>
         <value><cyclestr>nam_catchup_coldstart_partialcyc_#domain#_@H</cyclestr></value>
@@ -831,6 +994,14 @@
         <name>HOMEjobs</name>
         <value>&HOMEjobs;</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <envar>
         <name>tmmark</name>
         <value>tm06</value>
@@ -839,6 +1010,14 @@
         <name>domain</name>
         <value>#domain#</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <envar>
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -848,7 +1027,7 @@
           <taskdep task="prep_catchup_#domain#nest"/>
           <or>
             <!-- For CATCHUP cycles we need the previous CATCHUP cycle's analysis rst files to begin -->                                                           
-            <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESDIR;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_#domain#nest_nemsio.tm01</cyclestr></datadep>
+            <datadep age="00:00:02:00"><cyclestr offset="-06:00:00">&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_#domain#nest_nemsio.tm01</cyclestr></datadep>
             <!-- We can use whatever resides in nam.hold but that is much less desirable so we are willing to wait -->
             <timedep><cyclestr offset="&TM02_ANALYSIS_OFFSET_CATCHUP;">@Y@m@d@H@M@S</cyclestr></timedep>
           </or>
@@ -878,6 +1057,10 @@
         <name>envir</name>
         <value>&ENVIR;</value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>job</name>
         <value><cyclestr>nam_catchup_coldstart_sfcupdate_#domain#_@H</cyclestr></value>
@@ -918,6 +1101,14 @@
         <name>domain</name>
         <value>#domain#</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
 
       <dependency>
         <taskdep task="partialcyc_catchup_#domain#nest"/>
@@ -947,6 +1138,59 @@
     <envar>
       <name>envir</name>
       <value>&ENVIR;</value>
+    </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NTASKS;</value>
+    </envar>
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_PPN;</value>
+    </envar>
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>jlogfile</name>
+    <value>&JLOGFILE;</value>
+    </envar>
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
     </envar>
     <envar>
       <name>job</name>
@@ -1015,6 +1259,10 @@
         <name>cyc</name>
         <value><cyclestr>@H</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>envir</name>
         <value>&ENVIR;</value>
@@ -1030,6 +1278,55 @@
       <envar>
         <name>nam_ver</name>
         <value>&NAM_VER;</value>
+      </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+    
+    <envar>
+    <name>jlogfile</name>
+    <value>&JLOGFILE;</value>
+    </envar>
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+      <envar>
+        <name>ntasks</name>
+        <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_NTASKS;</value>
+      </envar>
+      <envar>
+        <name>ppn</name>
+        <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_PPN;</value>
+      </envar>
+      <envar>
+        <name>threads</name>
+        <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
       </envar>
       <envar>
         <name>NWROOT</name>
@@ -1095,6 +1392,10 @@
           <name>cyc</name>
           <value><cyclestr>@H</cyclestr></value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>envir</name>
           <value>&ENVIR;</value>
@@ -1114,6 +1415,44 @@
         <envar>
           <name>NWROOT</name>
           <value>&NWROOT;</value>
+        </envar>
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+        <envar>
+         <name>OMP_STACKSIZE</name>
+         <value>1G</value>
+         </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+        <envar>
+          <name>threads</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_THREADS;</value>
+        </envar>
+        <envar>
+          <name>OMP_NUM_THREADS</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_THREADS;</value>
+        </envar>
+        <envar>
+          <name>ntasks</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_PROCS;</value>
+        </envar>
+
+        <envar>
+          <name>ppn</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_PPN;</value>
         </envar>
         <envar>
           <name>PACKAGEROOT</name>
@@ -1166,6 +1505,10 @@
           <name>envir</name>
           <value>&ENVIR;</value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>job</name>
           <value><cyclestr>nam_catchup_analysis_tm#next_mark#_@H</cyclestr></value>
@@ -1202,6 +1545,56 @@
           <name>PDY</name>
           <value><cyclestr>@Y@m@d</cyclestr></value>
         </envar>
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NTASKS;</value>
+    </envar>
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_PPN;</value>
+    </envar>
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
           <and>
             <taskdep task="forecast_catchup_tm#mark#"/>
@@ -1230,6 +1623,10 @@
             <name>cyc</name>
             <value><cyclestr>@H</cyclestr></value>
           </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
           <envar>
             <name>envir</name>
             <value>&ENVIR;</value>
@@ -1246,6 +1643,14 @@
             <name>nam_ver</name>
             <value>&NAM_VER;</value>
           </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
           <envar>
             <name>NWROOT</name>
             <value>&NWROOT;</value>
@@ -1274,6 +1679,43 @@
             <name>PDY</name>
             <value><cyclestr>@Y@m@d</cyclestr></value>
           </envar>
+
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_NTASKS;</value>
+    </envar>
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_PPN;</value>
+    </envar>
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
           <dependency>
             <and>
               <taskdep task="forecast_catchup_tm#mark#"/>
@@ -1307,10 +1749,61 @@
           <name>cyc</name>
           <value><cyclestr>@H</cyclestr></value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>envir</name>
           <value>&ENVIR;</value>
         </envar>
+
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+
+        <envar>
+         <name>OMP_STACKSIZE</name>
+         <value>1G</value>
+         </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+
+        <envar>
+          <name>threads</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_THREADS;</value>
+        </envar>
+
+        <envar>
+          <name>OMP_NUM_THREADS</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_THREADS;</value>
+        </envar>
+
+        <envar>
+          <name>ntasks</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_PROCS;</value>
+        </envar>
+
+        <envar>
+          <name>ppn</name>
+          <value>&CATCHUP_RUNNAM_FORECAST_PPN;</value>
+        </envar>
+
         <envar>
           <name>job</name>
           <value><cyclestr>nam_catchup_forecast.tm#mark#_@H</cyclestr></value> 
@@ -1351,6 +1844,10 @@
           <name>PDY</name>
           <value><cyclestr>@Y@m@d</cyclestr></value>
         </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
         <dependency>
           <and>
             <metataskdep metatask="nemsinterp_catchup_tm"/>
@@ -1378,6 +1875,10 @@
           <name>envir</name>
           <value>&ENVIR;</value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>job</name>
           <value><cyclestr>nam_analysis_@H</cyclestr></value>
@@ -1414,6 +1915,61 @@
           <name>PDY</name>
           <value><cyclestr>@Y@m@d</cyclestr></value>
         </envar>
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NTASKS;</value>
+    </envar>
+
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_PPN;</value>
+    </envar>
+
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_THREADS;</value>
+    </envar>
+
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
           <and>
             <taskdep task="main_catchup_tm00"/>
@@ -1443,6 +1999,10 @@
             <name>cyc</name>
             <value><cyclestr>@H</cyclestr></value>
           </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
           <envar>
             <name>envir</name>
             <value>&ENVIR;</value>
@@ -1471,6 +2031,61 @@
             <name>PACKAGEROOT</name>
             <value>&PACKAGEROOT;</value>
           </envar>
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_NTASKS;</value>
+    </envar>
+
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_PPN;</value>
+    </envar>
+
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
+    </envar>
+
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_THREADS;</value>
+    </envar>
+
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+    
           <envar>
             <name>COMDATEROOT</name>
             <value>&COMDATEROOT;</value>
@@ -1526,6 +2141,10 @@
               <name>envir</name>
               <value>&ENVIR;</value>
             </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
             <envar>
               <name>PDY</name>
               <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -1541,6 +2160,14 @@
             <envar>
               <name>nam_ver</name>
             <value>&NAM_VER;</value>
+            </envar>
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS;</value>
             </envar>
             <envar>
               <name>NWROOT</name>
@@ -1566,9 +2193,23 @@
               <name>post_times</name>
               <value>#fcsthour#</value>
             </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       
             <dependency>
-                <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
+	    <and>
+               <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
+	       <or>
+	       <datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_01_nemsio.anl.tm#mark# </cyclestr></datadep>
+	       <datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_nemsio_anl.tm#mark# </cyclestr></datadep>
+	       </or>
+           </and>
             </dependency>
           </task>
       </metatask>
@@ -1596,6 +2237,10 @@
               <name>envir</name>
               <value>&ENVIR;</value>
             </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
             <envar>
               <name>PDY</name>
               <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -1608,6 +2253,14 @@
               <name>jobid</name>
               <value><cyclestr>jnam_catchup_prdgen_tm#mark#_f#fcsthour#_@H</cyclestr></value>
             </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
             <envar>
               <name>nam_ver</name>
             <value>&NAM_VER;</value>
@@ -1666,6 +2319,10 @@
                <name>envir</name>
                <value>&ENVIR;</value>
              </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
              <envar>
                <name>PDY</name>
                <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -1674,6 +2331,22 @@
                <name>job</name>
                <value><cyclestr>nam_catchup_post_#domain#_tm#mark#_f#fcsthour#_@H</cyclestr></value>
              </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
              <envar>
                <name>jobid</name>
                <value><cyclestr>jnam_catchup_post_#domain#_tm#mark#_f#fcsthour#_@H</cyclestr></value>
@@ -1694,6 +2367,10 @@
                <name>COMDATEROOT</name>
                <value>&COMDATEROOT;</value>
              </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
              <envar>
                <name>HOMEjobs</name>
                <value>&HOMEjobs;</value>
@@ -1711,7 +2388,13 @@
                <value>#domain#</value>
              </envar>
              <dependency>
+	     <and>
                  <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm#mark#_&ENVIR;/fcstdone.#numdom#.00#fcsthour#h_00m_00.00s</datadep>
+	         <or>
+		 <datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.input_domain_#domain#nest_nemsio.anl.tm#mark#</cyclestr></datadep>
+		 <datadep age="00:00:02:00"><cyclestr>&GESIN;/&RUN;.@Y@m@d/nam.t@Hz.nmm_b_restart_#domain#nest_nemsio_anl.tm#mark#</cyclestr></datadep>
+		 </or>
+		 </and>
              </dependency>    
            </task>
         </metatask>
@@ -1761,6 +2444,18 @@
             <name>NWROOT</name>
             <value>&NWROOT;</value>
           </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
           <envar>
             <name>PACKAGEROOT</name>
             <value>&PACKAGEROOT;</value>
@@ -1822,8 +2517,28 @@
       <value><cyclestr>jnam_catchup_posttm01_@H</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+    <envar>
       <name>nam_ver</name>
       <value>&NAM_VER;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
     </envar>
     <envar>
       <name>NWROOT</name>
@@ -1884,6 +2599,15 @@
         <name>jobid</name>
         <value><cyclestr>jnam_catchup_npsguess_#domain#_tm01_@H</cyclestr></value>
       </envar>
+      <!--- need resources here -->
+      <envar>
+      <name>procs</name>
+      <value>&CATCHUP_RUNNAM_PREP_NONCYC_NEST_PROCS;</value>
+      </envar>
+      <envar>
+      <name>procspernode</name>
+      <value>&CATCHUP_RUNNAM_PREP_NONCYC_NEST_PROCS;</value>
+      </envar>
       <envar>
         <name>nam_ver</name>
         <value>&NAM_VER;</value>
@@ -1896,6 +2620,10 @@
         <name>PACKAGEROOT</name>
         <value>&PACKAGEROOT;</value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>COMDATEROOT</name>
         <value>&COMDATEROOT;</value>
@@ -1916,6 +2644,14 @@
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <dependency>
         <taskdep task="posttm01"/>
       </dependency>
@@ -1971,6 +2707,10 @@
         <name>HOMEjobs</name>
         <value>&HOMEjobs;</value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>tmmark</name>
         <value>tm01</value>
@@ -1979,6 +2719,14 @@
         <name>domain</name>
         <value>#domain#</value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <envar>
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -2034,6 +2782,10 @@
         <name>COMDATEROOT</name>
         <value>&COMDATEROOT;</value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>HOMEjobs</name>
         <value>&HOMEjobs;</value>
@@ -2046,6 +2798,14 @@
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
       </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
       <envar>
         <name>domain</name>
         <value>#domain#</value>
@@ -2102,6 +2862,18 @@
       <value>&PACKAGEROOT;</value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
       <name>COMDATEROOT</name>
       <value>&COMDATEROOT;</value>
     </envar>
@@ -2149,8 +2921,28 @@
       <value>&ENVIR;</value>
     </envar>
     <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
       <name>job</name>
       <value><cyclestr>nam_ungrib_boco_@H</cyclestr></value>
+    </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>procs</name>
+    <value>&CATCHUP_RUNNAM_UNGRIB_FREEFORECAST_PROCS;</value>
+    </envar>
+    <envar>
+    <name>procspernode</name>
+    <value>&CATCHUP_RUNNAM_UNGRIB_FREEFORECAST_PROCS;</value>
     </envar>
     <envar>
       <name>jobid</name>
@@ -2179,6 +2971,14 @@
     <envar>
       <name>tmmark</name>
       <value>tm00</value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
     </envar>
     <envar>
       <name>PDY</name>
@@ -2213,6 +3013,10 @@
       <value><cyclestr>nam_metgrid_boco_@H</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>jobid</name>
       <value><cyclestr>jnam_metgrid_boco_@H</cyclestr></value>
     </envar>
@@ -2228,6 +3032,17 @@
       <name>PACKAGEROOT</name>
       <value>&PACKAGEROOT;</value>
     </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <envar>
       <name>COMDATEROOT</name>
       <value>&COMDATEROOT;</value>
@@ -2273,6 +3088,18 @@
         <name>job</name>
         <value><cyclestr>nam_nemsinterp_boco_#numk#_@H</cyclestr></value>
       </envar>
+      <envar> 
+      <name>procs</name>
+      <value>&CATCHUP_RUNNAM_NEMSINTERP_FREEFORECAST_PROCS;</value>
+      </envar>
+      <envar> 
+      <name>procspernode</name>
+      <value>&CATCHUP_RUNNAM_NEMSINTERP_FREEFORECAST_PROCS;</value>
+      </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>jobid</name>
         <value><cyclestr>jnam_nemsinterp_boco_#numk#_@H</cyclestr></value>
@@ -2289,6 +3116,16 @@
         <name>PACKAGEROOT</name>
         <value>&PACKAGEROOT;</value>
       </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
       <envar>
         <name>COMDATEROOT</name>
         <value>&COMDATEROOT;</value>
@@ -2345,6 +3182,63 @@
             <name>job</name>
             <value><cyclestr>nam_analysis_#domain#_@H</cyclestr></value>
           </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_NTASKS;</value>
+    </envar>
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_PPN;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_PLACES</name>
+    <value>cores</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>FI_OFI_RXM_SAR_LIMIT</name>
+    <value>3145728</value>
+    </envar>
+    <envar>
+    <name>MPICH_COLL_OPT_OFF</name>
+    <value>1</value>
+    </envar>
+
+    <envar>
+    <name>COM_PREPBUFR</name>
+    <value>&COM_PREPBUFR;</value>
+    </envar>
+
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_ANALYSIS_NEST_SMALL_THREADS;</value>
+    </envar>
           <envar>
             <name>jobid</name>
             <value><cyclestr>jnam_analysis_#domain#_@H</cyclestr></value>
@@ -2416,6 +3310,37 @@
       <value>&ENVIR;</value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+
+    <envar>
+    <name>ntasks</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_PROCS;</value>
+    </envar>
+    <envar>
+    <name>ppn</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_PPN;</value>
+    </envar>
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_STACKSIZE</name>
+    <value>1G</value>
+    </envar>
+
+    <envar>
+    <name>OMP_PROC_BIND</name>
+    <value>true</value>
+    </envar>
+
+    <envar>
       <name>job</name>
       <value><cyclestr>nam_forecast_@H</cyclestr></value>
     </envar>
@@ -2447,6 +3372,16 @@
       <name>tmmark</name>
       <value>tm00</value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <envar>
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -2477,6 +3412,10 @@
     <envar>
       <name>envir</name>
       <value>&ENVIR;</value>
+    </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
     </envar>
     <envar>
       <name>job</name>
@@ -2510,10 +3449,55 @@
       <name>tmmark</name>
       <value>tm00</value>
     </envar>
+    <!-- need resource information here -->
+    <envar>
+      <name>ntasks</name>
+      <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PROCS;</value>
+    </envar>
+    
+    <envar>
+      <name>ppn</name>
+      <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_PPN;</value>
+    </envar>
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+        <envar>
+         <name>OMP_STACKSIZE</name>
+         <value>1G</value>
+         </envar>
+
+        <envar>
+          <name>OMP_PROC_BIND</name>
+          <value>true</value>
+        </envar>
+
+    <envar>
+    <name>threads</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_THREADS;</value>
+    </envar>
+    <envar>
+    <name>OMP_NUM_THREADS</name>
+    <value>&CATCHUP_RUNNAM_FREEFORECAST_PARENTEXT_THREADS;</value>
+    </envar>
+
     <envar>
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    
     <dependency>
       <taskdep task="forecast_catchup_tm00"/>
     </dependency>
@@ -2539,6 +3523,15 @@
       <nodes>&POST_NODES;</nodes>
       <jobname><cyclestr>nam_post_tm00_f#fcsthour#_@H</cyclestr></jobname>
       <join><cyclestr>&LOG_DIR;/nam_post.f#fcsthour#.tm00.@Y@m@d@H.out</cyclestr></join>    
+
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS;</value>
+            </envar>
       <envar>
         <name>cyc</name>
         <value><cyclestr>@H</cyclestr></value>
@@ -2551,6 +3544,12 @@
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
       </envar>
+
+      <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+
       <envar>
         <name>job</name>
         <value><cyclestr>nam_post_f#fcsthour#_@H</cyclestr></value>
@@ -2587,6 +3586,15 @@
         <name>post_times</name>
         <value>#fcsthour#</value>
       </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
 
       <dependency>
           <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
@@ -2624,6 +3632,10 @@
         <name>job</name>
         <value><cyclestr>nam_post_f#fcsthour#_@H</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>jobid</name>
         <value><cyclestr>jnam_post_f#fcsthour#_@H</cyclestr></value>
@@ -2656,6 +3668,25 @@
         <name>post_times</name>
         <value>#fcsthour#</value>
       </envar>
+      
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS;</value>
+            </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
 
       <dependency>
           <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
@@ -2689,6 +3720,10 @@
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>job</name>
         <value><cyclestr>nam_prdgen_f#fcsthour#_@H</cyclestr></value>
@@ -2725,6 +3760,22 @@
         <name>fcsthrs</name>
         <value>#fcsthour#</value>
       </envar>
+
+      <envar>
+      <name>GRB2INDEX</name>
+      <value>/apps/ops/prod/libs/intel/19.1.3.304/grib_util/1.2.2/bin/grb2index</value>
+      </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
       <dependency>
         <taskdep task="post_catchup_tm00_#fcsthour#"/>
       </dependency>
@@ -2756,6 +3807,10 @@
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>job</name>
         <value><cyclestr>nam_awips_f#fcsthour#_@H</cyclestr></value>
@@ -2792,6 +3847,17 @@
         <name>fcsthrs</name>
         <value>#fcsthour#</value>
       </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
       <dependency>
         <taskdep task="prdgen_catchup_tm00_#fcsthour#"/>
       </dependency>
@@ -2823,6 +3889,10 @@
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>job</name>
         <value><cyclestr>nam_profile_f#fcsthour#_@H</cyclestr></value>
@@ -2860,6 +3930,16 @@
         <value>#fcsthour#</value>
       </envar>
 
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
       <dependency>
           <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.01.00#fcsthour#h_00m_00.00s</datadep>
       </dependency>
@@ -2890,6 +3970,10 @@
         <name>PDY</name>
         <value><cyclestr>@Y@m@d</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
     <envar>
       <name>job</name>
       <value><cyclestr>nam_postsnd_@H</cyclestr></value>
@@ -2923,6 +4007,16 @@
       <value>tm00</value>
     </envar>
 
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <!-- Start the postsnd only when ALL profile jobs have completed successfully -->
     <dependency>
       <metataskdep metatask="profile_catchup"/>
@@ -2952,6 +4046,10 @@
       <value><cyclestr>@Y@m@d</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>job</name>
       <value><cyclestr>nam_fbwind_@H</cyclestr></value>
     </envar>
@@ -2979,6 +4077,17 @@
       <name>HOMEjobs</name>
       <value>&HOMEjobs;</value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <envar>
       <name>tmmark</name>
       <value>tm00</value>
@@ -3019,6 +4128,10 @@
       <value><cyclestr>nam_bulls_@H</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>jobid</name>
       <value><cyclestr>jnam_bulls_@H</cyclestr></value>
     </envar>
@@ -3042,6 +4155,17 @@
       <name>HOMEjobs</name>
       <value>&HOMEjobs;</value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <envar>
       <name>tmmark</name>
       <value>tm00</value>
@@ -3088,6 +4212,10 @@
       <value>&PACKAGEROOT;</value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>COMDATEROOT</name>
       <value>&COMDATEROOT;</value>
     </envar>
@@ -3103,6 +4231,17 @@
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <dependency>
       <taskdep task="post_catchup_tm00_00"/>   
     </dependency>
@@ -3126,6 +4265,10 @@
     <envar>
       <name>job</name>
       <value><cyclestr>nam_gempak_meta_@H</cyclestr></value>
+    </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
     </envar>
     <envar>
       <name>jobid</name>
@@ -3155,6 +4298,17 @@
       <name>tmmark</name>
       <value>tm00</value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <envar>
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -3200,6 +4354,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>envir</name>
           <value>&ENVIR;</value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>PDY</name>
           <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -3212,6 +4370,14 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>jobid</name>
           <value><cyclestr>jnam_post_#domain#_f#fcsthour#_@H</cyclestr></value>
         </envar>
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
         <envar>
           <name>nam_ver</name>
           <value>&NAM_VER;</value>
@@ -3244,6 +4410,17 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>domain</name>
           <value>#domain#</value>
         </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
             <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.#numdom#.00#fcsthour#h_00m_00.00s</datadep>
         </dependency>
@@ -3274,6 +4451,18 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>envir</name>
           <value>&ENVIR;</value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
         <envar>
           <name>PDY</name>
           <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -3318,6 +4507,17 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>domain</name>
           <value>#domain#</value>
         </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
               <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.#numdom#.00#fcsthour#h_00m_00.00s</datadep>
         </dependency>
@@ -3346,6 +4546,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>envir</name>
           <value>&ENVIR;</value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>PDY</name>
           <value><cyclestr>@Y@m@d</cyclestr></value>
@@ -3390,6 +4594,17 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>domain</name>
           <value>#domain#</value>
         </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
           <taskdep task="post_#domain#_catchup_tm00_#fcsthour#"/>
         </dependency>
@@ -3440,6 +4655,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>NWROOT</name>
           <value>&NWROOT;</value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>PACKAGEROOT</name>
           <value>&PACKAGEROOT;</value>
@@ -3464,6 +4683,116 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>domain</name>
           <value>#domain#</value>
         </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+   
+
+        <dependency>
+          <taskdep task="post_#domain#_catchup_tm00_#fcsthour#"/>
+        </dependency>
+      </task>
+    </metatask>
+  </metatask>
+
+  <!-- FIREWX NEST: Post steps - this is for CATCHUP type cycles only -->
+  <metatask>
+    <var name="domain">firewx</var>
+    <var name="numdom">06</var>
+    <metatask>
+      <var name="fcsthour">&CATCHUP_NEST_FHR07_to_FMAX_Firewx;</var>
+      <task name="post_#domain#_catchup_tm00_#fcsthour#" cycledefs="catchup" maxtries="2">
+
+        &POST_RESOURCES_NEST;
+        &RESERVATION_NOSHARE;
+
+        <command>&JOBSnam;/JNAM_POST_NEST</command>
+        <nodes>&POST_NODES_NEST;</nodes>
+        <jobname><cyclestr>nam_post_#domain#_tm00_f#fcsthour#_@H</cyclestr></jobname>
+        <join><cyclestr>&LOG_DIR;/nam_post_#domain#.f#fcsthour#.tm00.@Y@m@d@H.out</cyclestr></join>    
+        <envar>
+          <name>cyc</name>
+          <value><cyclestr>@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>envir</name>
+          <value>&ENVIR;</value>
+        </envar>
+        <envar>
+          <name>PDY</name>
+          <value><cyclestr>@Y@m@d</cyclestr></value>
+        </envar>
+        <envar>
+          <name>job</name>
+          <value><cyclestr>nam_post_#domain#_f#fcsthour#_@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>jobid</name>
+          <value><cyclestr>jnam_post_#domain#_f#fcsthour#_@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>nam_ver</name>
+          <value>&NAM_VER;</value>
+        </envar>
+
+            <envar>
+              <name>procs</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+            <envar>
+              <name>procspernode</name>
+              <value>&POST_PROCS_NEST;</value>
+            </envar>
+
+        <envar>
+          <name>NWROOT</name>
+          <value>&NWROOT;</value>
+        </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+        <envar>
+          <name>PACKAGEROOT</name>
+          <value>&PACKAGEROOT;</value>
+        </envar>
+        <envar>
+          <name>COMDATEROOT</name>
+          <value>&COMDATEROOT;</value>
+        </envar>
+        <envar>
+          <name>HOMEjobs</name>
+          <value>&HOMEjobs;</value>
+        </envar>
+        <envar>
+          <name>tmmark</name>
+          <value>tm00</value>
+        </envar>
+        <envar>
+          <name>post_times</name>
+          <value>#fcsthour#</value>
+        </envar>
+        <envar>
+          <name>domain</name>
+          <value>#domain#</value>
+        </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
            <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.#numdom#.00#fcsthour#h_00m_00.00s</datadep>
         </dependency>
@@ -3504,6 +4833,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>jobid</name>
           <value><cyclestr>jnam_prdgen_#domain#_f#fcsthour#_@H</cyclestr></value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>nam_ver</name>
           <value>&NAM_VER;</value>
@@ -3536,6 +4869,16 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>domain</name>
           <value>#domain#</value>
         </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
           <taskdep task="post_#domain#_catchup_tm00_#fcsthour#"/>
         </dependency>
@@ -3579,6 +4922,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>jobid</name>
           <value><cyclestr>jnam_profile_#domain#_f#fcsthour#_@H</cyclestr></value>
         </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
         <envar>
           <name>nam_ver</name>
           <value>&NAM_VER;</value>
@@ -3611,6 +4958,16 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
           <name>domain</name>
           <value>#domain#</value>
         </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
         <dependency>
             <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.#numdom#.00#fcsthour#h_00m_00.00s</datadep>
         </dependency>
@@ -3652,6 +5009,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
         <name>jobid</name>
         <value><cyclestr>jnam_postsnd_#domain#_@H</cyclestr></value>
       </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
       <envar>
         <name>nam_ver</name>
         <value>&NAM_VER;</value>
@@ -3680,6 +5041,16 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
         <name>tmmark</name>
         <value>tm00</value>
       </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
 
       <!-- Start the postsnd only when ALL profile_#domain# jobs have completed successfully -->
       <dependency>
@@ -3713,6 +5084,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
       <value><cyclestr>jnam_gempak_nest_@H</cyclestr></value>
     </envar>
     <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
       <name>nam_ver</name>
       <value>&NAM_VER;</value>
     </envar>
@@ -3740,6 +5115,17 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <dependency>
        <taskdep task="post_conus_catchup_tm00_00"/>
     </dependency>
@@ -3776,6 +5162,22 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
       <name>nam_ver</name>
       <value>&NAM_VER;</value>
     </envar>
+
+    <envar>
+    <name>procs</name>
+    <value>&POST_PROCS_GOESTB_PARENT;</value>
+    </envar>
+
+    <envar>
+    <name>procspernode</name>
+    <value>&POST_PROCS_GOESTB_PARENT;</value>
+    </envar>
+
+
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
     <envar>
       <name>NWROOT</name>
       <value>&NWROOT;</value>
@@ -3800,6 +5202,17 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <dependency>
       <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.01.0000h_00m_00.00s</datadep>
     </dependency>
@@ -3822,6 +5235,19 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
       <name>envir</name>
       <value>&ENVIR;</value>
     </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
+    </envar>
+    <envar>
+    <name>procs</name>
+    <value>&POST_PROCS_GOESTB_CONUS;</value>
+    </envar>
+    <envar>
+    <name>procspernode</name>
+    <value>&POST_PROCS_GOESTB_CONUS;</value>
+    </envar>
+    
     <envar>
       <name>job</name>
       <value><cyclestr>nam_post_goestb_conus_@H</cyclestr></value>
@@ -3862,6 +5288,17 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <dependency>
       <datadep age="00:00:00:10">&DATAROOT;/<cyclestr>nam_@H</cyclestr>_tm00_&ENVIR;/fcstdone.02.0000h_00m_00.00s</datadep>
     </dependency>
@@ -3887,6 +5324,10 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
     <envar>
       <name>job</name>
       <value><cyclestr>nam_cleanup_&ENVIR;_@Y@m@d@H</cyclestr></value>
+    </envar>
+    <envar>
+    <name>HOMEnam</name>
+    <value>&HOMEnam;</value>
     </envar>
     <envar>
       <name>jobid</name>
@@ -3920,6 +5361,17 @@ BEGIN POST PIECES FOR THE NEST PARTS OF THE FREE FORECAST
       <name>PDY</name>
       <value><cyclestr>@Y@m@d</cyclestr></value>
     </envar>
+
+    <envar>
+    <name>COMIN</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
+    <envar>
+    <name>COMOUT</name>
+    <value><cyclestr>&COMOUTbase;/nam.@Y@m@d</cyclestr></value>
+    </envar>
+
     <dependency>
        <and>
         <metataskdep metatask="postsnd_nests_catchup"/>

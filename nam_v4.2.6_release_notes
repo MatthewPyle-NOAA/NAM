@@ -1,0 +1,66 @@
+NAM v4.2.6 - released 12/8/2023
+
+Google docs version of release notes at: 
+
+https://docs.google.com/document/d/1Yvt--GM9wP6ndFkNYQkjvdTVJ1s6yXc3XH971mM545E/edit?usp=sharing
+
+#####################
+Update overview 
+#####################
+
+* Provides changes needed for the NAM to switch to the updated 
+USAF snow depth product
+
+#####################
+Obtaining the package
+#####################
+
+Clone it with this command (but change nam.v4.2.6 to whatever you want to 
+call it in the directory that it is cloned into):
+
+
+git clone -b v4.2.6 https://github.com/MatthewPyle-NOAA/NAM.git nam.v4.2.6
+
+Among the changes is an updated version of 
+nam_land_utilities.fd/sorc/emcsfc_snow2mdl.fd 
+that must be built for the NAM to work with the new snow depth product.  
+The recommended sequence to execute this build is to go into 
+sorc/nam_land_utilities.fd/sorc/, and then
+
+./build_emcsfc.sh
+
+./install_emcsfc.sh (the switches have been set to only install 
+the needed new emcsfc_snow2mdl executable)
+
+
+#############################
+Modified/new files:
+#############################
+
+scripts/ :
+Similar changes were made in these four scripts to point at the new 
+global USAF snow product in GRIB2 format. 
+ 
+exnam_sfcupdate_nest.sh
+exnam_sfcupdate_nest_tm00.sh
+exnam_sfcupdate.sh
+exnam_sfcupdate_tm00.sh
+
+Updated sorc for emcsfc_snow2mdl.fd was needed to handle the GRIB2 format.
+
+sorc/nam_land_utilities.fd/sorc/emcsfc_snow2mdl.fd
+
+Modified this build script to not copy executables to final exec directory 
+in a single step.
+
+sorc/nam_land_utilities.fd/sorc/build_emcsfc.sh
+
+Added a new separate script to install to the final exec directory:
+
+sorc/nam_land_utilities.fd/sorc/install_emcsfc.sh
+
+#############################
+Resource changes:
+#############################
+
+None.
