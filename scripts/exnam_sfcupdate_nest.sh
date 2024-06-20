@@ -21,6 +21,7 @@
 #                           fields are only updated at start of 06z NDAS
 # 2009-06-22  Eric Rogers - Converted to work in the NEMS NDAS
 # 2019-05-20  Eric Rogers - Changes for run on Dell
+# 2024-06-20  Matthew Pyle - Fixes issue with new AFWA snow data
 
 set -x
 
@@ -122,7 +123,7 @@ WORK_DIR=$DATA
 SST_GLOBAL_FILE_NAME="rtgssthr_grb_0.083"
 NESDIS_FILE_NAME="imssnow96.grb"
 # AFWA_NH_FILE_NAME="NPR.SNWN.SP.S1200.MESH16"
-AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${PDY}_DT.${CYCSICE_UPDATE}00_DF.GR2"
+# AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${PDY}_DT.${CYCSICE_UPDATE}00_DF.GR2"
 
 SST_REG_FILE_NAME=""
 
@@ -156,6 +157,7 @@ then
  
   while ((CHKDATE >= OLD_DATE_8)) ; do
     AFWA_DIR="${DCOMROOT}/${CHKDATE}/wgrbbul/557thWW_snow"
+    AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${CHKDATE}_DT.${CYCSICE_UPDATE}00_DF.GR2"
 
     if [[ (-s ${AFWA_DIR}/${AFWA_GLB_FILE_NAME}) ]]
     then
