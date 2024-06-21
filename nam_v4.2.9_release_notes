@@ -9,7 +9,7 @@ Update overview
 #####################
 
 * Fixes a scripting issue that prevents the NAM from finding the USAF 
-snow depth product
+snow depth product from previous cycles.
 
 #####################
 Obtaining the package
