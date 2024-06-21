@@ -80,7 +80,6 @@ WORK_DIR=$DATA/sfcupdate
 SST_GLOBAL_FILE_NAME="rtgssthr_grb_0.083"
 NESDIS_FILE_NAME="imssnow96.grb"
 # AFWA_NH_FILE_NAME="NPR.SNWN.SP.S1200.MESH16"
-AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${PDY}_DT.${CYCSICE_UPDATE}00_DF.GR2"
 SST_REG_FILE_NAME=""
 
 #---------------------------------------------------------------------
@@ -101,6 +100,7 @@ then
  
   while ((CHKDATE >= OLD_DATE_8)) ; do
      AFWA_DIR="${DCOMROOT}/${CHKDATE}/wgrbbul/557thWW_snow"
+     AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${CHKDATE}_DT.${CYCSICE_UPDATE}00_DF.GR2"
     if [[ (-s ${AFWA_DIR}/${AFWA_GLB_FILE_NAME}) ]]
     then
       TEMP_DATE=`$WGRIB2 -vt ${AFWA_DIR}/${AFWA_GLB_FILE_NAME} | head -n1 | awk -F= '{print $2}'`
