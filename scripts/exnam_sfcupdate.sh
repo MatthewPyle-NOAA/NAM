@@ -21,6 +21,7 @@
 #                           fields are only updated at start of 06z NDAS
 # 2009-06-22  Eric Rogers - Converted to work in the NEMS NDAS
 # 2019-05-20  Eric Rogers - Changes for run on Dell
+# 2024-06-20  Matthew Pyle - Fixes issue with new AFWA snow data
 
 set -x
 

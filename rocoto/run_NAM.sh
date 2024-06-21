@@ -1,9 +1,12 @@
 #!/bin/bash -l
+#
 
-VERFILE=/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/versions
+vers=v4.2.9
+
+VERFILE=/lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.${vers}/versions
 . $VERFILE/run.ver
 
-module purge
+module reset
 module load envvar/${envvar_ver}
 module load PrgEnv-intel/${PrgEnv_intel_ver}
 module load intel/${intel_ver}
@@ -28,5 +31,5 @@ mkdir -p /lfs/h2/emc/ptmp/Matthew.Pyle/output_para
 mkdir -p /lfs/h2/emc/stmp/Matthew.Pyle/tmp
 
 rocotorun -v 10 \
-        -w /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/rocoto/NAM_wcoss2_ops.xml \
-	-d /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.v4.2.9/rocoto/NAM_wcoss2_ops.db
+        -w /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.${vers}/rocoto/NAM_wcoss2_ops.xml \
+	-d /lfs/h2/emc/lam/noscrub/Matthew.Pyle/nam.${vers}/rocoto/NAM_wcoss2_ops.db

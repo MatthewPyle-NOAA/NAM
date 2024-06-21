@@ -24,6 +24,7 @@
 # 2016-07-27  Eric Rogers - Special version for coldstarting NAM forecast 
 #                           off GDAS
 # 2019-05-20  Eric Rogers - Changes for run on Dell
+# 2024-06-20  Matthew Pyle - Fixes issue with new AFWA snow data
 
 set -x
 
