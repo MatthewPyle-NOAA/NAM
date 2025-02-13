@@ -1,0 +1,44 @@
+NAM v4.2.9 - released 6/25/2024
+
+Google docs version of release notes at: 
+
+https://docs.google.com/document/d/1AjYG8VqoP8V_idKuKDsq5Po6La9FDHWhyEzrTX6LY_k/edit?usp=sharing
+
+#####################
+Update overview 
+#####################
+
+* Fixes a scripting issue that prevents the NAM from finding the USAF 
+snow depth product from previous cycles.
+
+#####################
+Obtaining the package
+#####################
+
+Clone it with this command (but change nam.v4.2.9 to whatever you want
+ to call it in the directory that it is cloned into):
+
+
+git clone -b v4.2.9 https://github.com/MatthewPyle-NOAA/NAM.git nam.v4.2.9
+
+
+#############################
+Modified/new files:
+#############################
+
+scripts/ :
+Similar changes were made in these four scripts to modify the logic for 
+finding the global USAF snow product in GRIB2 format.   
+ 
+exnam_sfcupdate_nest.sh
+exnam_sfcupdate_nest_tm00.sh
+exnam_sfcupdate.sh
+exnam_sfcupdate_tm00.sh
+
+
+#############################
+Resource changes:
+#############################
+
+None.
+

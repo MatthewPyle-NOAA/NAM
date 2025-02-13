@@ -22,6 +22,7 @@
 # 2009-06-22  Eric Rogers - Converted to work in the NEMS NDAS
 # 2016-07-28  Eric Rogers - Special version of coldstarting NAM off GDAS
 # 2019-05-20  Eric Rogers - Changes for run on Dell
+# 2024-06-20  Matthew Pyle - Fixes issue with new AFWA snow data
 
 set -x
 
@@ -80,7 +81,6 @@ WORK_DIR=$DATA/sfcupdate
 SST_GLOBAL_FILE_NAME="rtgssthr_grb_0.083"
 NESDIS_FILE_NAME="imssnow96.grb"
 # AFWA_NH_FILE_NAME="NPR.SNWN.SP.S1200.MESH16"
-AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${PDY}_DT.${CYCSICE_UPDATE}00_DF.GR2"
 SST_REG_FILE_NAME=""
 
 #---------------------------------------------------------------------
@@ -101,12 +101,20 @@ then
  
   while ((CHKDATE >= OLD_DATE_8)) ; do
      AFWA_DIR="${DCOMROOT}/${CHKDATE}/wgrbbul/557thWW_snow"
+     AFWA_GLB_FILE_NAME="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${CHKDATE}_DT.${CYCSICE_UPDATE}00_DF.GR2"
+     AFWA_GLB_FILE_NAME_18="PS.557WW_SC.U_DI.C_GP.USAFSI_GR.C0P09DEG_AR.GLOBAL_PA.SNOW-ICE_DD.${CHKDATE}_DT.1800_DF.GR2"
+
+     if [[ (-s ${AFWA_DIR}/${AFWA_GLB_FILE_NAME_18}) ]]
+     then
+        AFWA_GLB_FILE_NAME=$AFWA_GLB_FILE_NAME_18
+     fi
+
     if [[ (-s ${AFWA_DIR}/${AFWA_GLB_FILE_NAME}) ]]
     then
       TEMP_DATE=`$WGRIB2 -vt ${AFWA_DIR}/${AFWA_GLB_FILE_NAME} | head -n1 | awk -F= '{print $2}'`
       typeset -L10 AFWA_GRIB_DATE
       AFWA_GRIB_DATE=${TEMP_DATE#*:d=}
-      if ((AFWA_GRIB_DATE > OLD_DATE_AFWA))
+      if ((AFWA_GRIB_DATE >= OLD_DATE_AFWA))
       then
         AFWA_GLB_FILE=${AFWA_DIR}/${AFWA_GLB_FILE_NAME}
       fi
