@@ -4,8 +4,7 @@
 #!#PBS -l place=vscatter:exclhost,select=40:ncpus=126
 #!#PBS -l place=vscatter:exclhost,select=38:ncpus=128
 #!#PBS -l place=vscatter:exclhost,select=39:ncpus=128   -- this is for hyperthreading
-#!#PBS -l place=vscatter:exclhost,select=41:ncpus=126
-#PBS -l place=vscatter:exclhost,select=42:ncpus=128
+#PBS -l place=vscatter:exclhost,select=41:ncpus=126
 #PBS -q %QUEUE%
 #PBS -S /bin/bash
 #!#PBS -l walltime=01:20:00
@@ -34,9 +33,7 @@ set -x
 
 # 05/18: export ntasks=2560
 # export ppn=64
-# 06/09 export ntasks=2583
-# export ppn=63
-export ntasks=2624
+export ntasks=2583
 export ppn=63
 export threads=2
 
@@ -71,7 +68,6 @@ export MPICH_OFI_STARTUP_CONNECT=1
 export MPICH_OFI_VERBOSE=1
 export MPICH_OFI_NIC_VERBOSE=1
 
-export FI_OFI_RXM_SAR_LIMIT=0
 
 export cyc=%CYC%
 export tmmark=tm00
