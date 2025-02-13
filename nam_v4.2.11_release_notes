@@ -1,0 +1,34 @@
+NAM v4.2.11 - released 2/13/2025
+
+Google docs version of release notes at: 
+
+https://docs.google.com/document/d/1NHSCNVrY13qx_CotM1do4NGxsZ0ZIEKSKrF2hMcY89k/edit?usp=sharing
+
+
+#####################
+Update overview 
+#####################
+
+- Removes parm/nam_staids.parm to eliminate GULF OF MEXICO text
+
+#####################
+Obtaining the package
+#####################
+
+Clone it with this command (but change nam.v4.2.11 to whatever you want to 
+call it in the directory that it is cloned into):
+
+git clone https://github.com/MatthewPyle-NOAA/NAM.git nam.v4.2.11
+
+
+#############################
+Modified/new files:
+#############################
+
+Deletes parm/nam_staids.parm file
+
+#############################
+Resource changes:
+#############################
+
+None.
