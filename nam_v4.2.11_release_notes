@@ -1,4 +1,4 @@
-NAM v4.2.11 - released 2/13/2025
+NAM v4.2.11 - re-released 2/23/2025
 
 Google docs version of release notes at: 
 
@@ -10,6 +10,9 @@ Update overview
 #####################
 
 - Removes parm/nam_staids.parm to eliminate GULF OF MEXICO text
+
+- Replaces instances of GULF OF MEXICO in parm files and 
+source code under /util/ with GULF OF AMERICA strings
 
 #####################
 Obtaining the package
@@ -25,7 +28,15 @@ git clone https://github.com/MatthewPyle-NOAA/NAM.git nam.v4.2.11
 Modified/new files:
 #############################
 
-Deletes parm/nam_staids.parm file
+Deletes:
+ parm/nam_staids.parm 
+
+Modifies:
+ util/parm/bulls_fdwnd.stnlist
+ util/parm/fbwnd_conus.stnlist
+ util/sorc/nam32tx.fd/fous60.f
+ util/sorc/nam32tx.fd/fous6048h.f
+ util/sorc/nam32tx.fd/stnij1.f
 
 #############################
 Resource changes:
