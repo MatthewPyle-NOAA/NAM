@@ -115,13 +115,13 @@ B+BHM    620 33.55 086.73 FDUM02,04,06    Birmingham,            ALABAMA
  +PSX     15 28.75 096.30                 Palacios,              TEXAS
  +SAT    809 28.63 098.45                 San Antonio,           TEXAS
  +SPS   1015 33.98 098.58                 Wichita Falls,         TEXAS
- +T01      0 28.50 093.50                 West Cameron,          GULF OF MEXICO    
- +T06      0 28.50 091.00                 Ship Shoal,            GULF OF MEXICO  
- +T07      0 28.50 088.00                 S Mobile South,        GULF OF MEXICO
- +4J3      0 28.50 085.00                 S Apalachicola South,  GULF OF MEXICO
- +H51      0 26.50 095.00                 Bay city,              GULF OF MEXICO
- +H52      0 26.00 089.50                 Mid Gulf,              GULF OF MEXICO
-E+H61      0 26.50 084.00                 W Fort Myers West,     GULF OF MEXICO
+ +T01      0 28.50 093.50                 West Cameron,          GULF OF AMERICA
+ +T06      0 28.50 091.00                 Ship Shoal,            GULF OF AMERICA
+ +T07      0 28.50 088.00                 S Mobile South,        GULF OF AMERICA
+ +4J3      0 28.50 085.00                 S Apalachicola South,  GULF OF AMERICA
+ +H51      0 26.50 095.00                 Bay city,              GULF OF AMERICA
+ +H52      0 26.00 089.50                 Mid Gulf,              GULF OF AMERICA
+E+H61      0 26.50 084.00                 W Fort Myers West,     GULF OF AMERICA
 B+PHX   1132 33.42 111.88 FDUW01,03,05    Phoenix,               ARIZONA 
  +PRC   5042 34.70 112.47                 Prescott,              ARIZONA
  +TUS   2630 32.12 110.82                 Tucson,                ARIZONA
@@ -529,9 +529,9 @@ B ACK     48 41.27  70.02 FDUS12, 14, 16  Nantucket,             MASSACHU
   GSP    972 34.88  82.22                 Greer,                 SOUTH CAROLINA
   HAT     11 35.27  75.55                 Cape Hatteras,         NORTH CAROLINA
   HSV    629 34.55 086.77                 Huntsville,            ALABAMA
-  H51      0 26.50 095.00                 Bay city,              GULF OF MEXICO
-  H52      0 26.00 089.50                 Mid Gulf,              GULF OF MEXICO
-  H61      0 26.50 084.00                 W Fort Myers West,     GULF OF MEXICO
+  H51      0 26.50 095.00                 Bay city,              GULF OF AMERICA
+  H52      0 26.00 089.50                 Mid Gulf,              GULF OF AMERICA
+  H61      0 26.50 084.00                 W Fort Myers West,     GULF OF AMERICA
   LBB   3281 33.70 101.90                 Lubbock,               TEXAS
   LCH     16 30.13 093.10                 Lake Charles,          LOUISIANA
   LND   5586 42.80 108.72                 Lander,                WYOMING
@@ -569,13 +569,13 @@ B ACK     48 41.27  70.02 FDUS12, 14, 16  Nantucket,             MASSACHU
   TUL    676 36.18 095.78                 Tulsa,                 OKLAHOMA
   TVC    624 44.67  85.53                 Traverse City,         MICHIGAN
   TYS    981 35.90 083.88                 Knoxville,             TENNESSEE
-  T01      0 28.50 093.50                 West Cameron,          GULF OF MEXICO    
-  T06      0 28.50 091.00                 Ship Shoal,            GULF OF MEXICO  
-  T07      0 28.50 088.00                 S Mobile South,        GULF OF MEXICO
+  T01      0 28.50 093.50                 West Cameron,          GULF OF AMERICA
+  T06      0 28.50 091.00                 Ship Shoal,            GULF OF AMERICA
+  T07      0 28.50 088.00                 S Mobile South,        GULF OF AMERICA
   WJF   2347 34.73 118.22                 Lancaster,             CALIFORNIA
   YKM   1095 46.57 120.43                 Yakima,                WASHINGTON
   ZUN   6454 34.95 109.15                 Zuni,                  NEW MEXICO
-E 4J3      0 28.50 085.00                 S Apalachicola South,  GULF OF MEXICO
+E 4J3      0 28.50 085.00                 S Apalachicola South,  GULF OF AMERICA
 B ABI   1790 32.47  99.85 FDUS08, 09, 10  Abilene,               TEXAS
   ABQ   5352 35.03 106.80                 Albuquerque,           NEW MEXICO
   ABR   1301 45.42  98.37                 Aberdeen,              SOUTH DAKOTA

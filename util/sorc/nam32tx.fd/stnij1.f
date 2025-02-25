@@ -141,12 +141,12 @@ C    96   SAV     SAVANNAH, GEORGIA
 C    97   CDC     CEDAR CITY, UTAH                                    
 C    98   BNA     NASHVILLE, TENNESSEE                                
 C    99   ORF     NORFOLK, VIRGINIA                                   
-C   100   G2GFA   GULF OF MEXICO                                      
-C   101   G2GFB   GULF OF MEXICO                                      
-C   102   G2GFC   GULF OF MEXICO                                      
-C   103   G2GFD   GULF OF MEXICO                                      
-C   104   G2GFE   GULF OF MEXICO                                      
-C   105   G2GFF   GULF OF MEXICO                                      
+C   100   G2GFA   GULF OF AMERICA
+C   101   G2GFB   GULF OF AMERICA
+C   102   G2GFC   GULF OF AMERICA
+C   103   G2GFD   GULF OF AMERICA
+C   104   G2GFE   GULF OF AMERICA
+C   105   G2GFF   GULF OF AMERICA
 C   106   CAR     CARIBOU, MAINE                                      
 C   107   CON     CONCORD, NEW HAMPSHIRE                              
 C   108   PIH     POCATELLO, IDAHO                                    
@@ -156,11 +156,11 @@ C   111   UCC     YUCCA FLAT, NEVEDA
 C   112   BTNM3       LAT:  41.5 DEG N   LONG:  69 DEG W              
 C   113   LGIN6       LAT:  40 DEG N     LONG:  70 DEG W              
 C   114   LWS     LEWISTON, IDAHO                                     
-C   115   G2GFG   GULF OF MEXICO                                      
-C   116   G2GFH   GULF OF MEXICO                                      
-C   117   G2GFI   GULF OF MEXICO                                      
-C   118   G2GFJ   GULF OF MEXICO                                      
-C   119   G2GFK  GULF OF MEXICO                                       
+C   115   G2GFG   GULF OF AMERICA
+C   116   G2GFH   GULF OF AMERICA
+C   117   G2GFI   GULF OF AMERICA
+C   118   G2GFJ   GULF OF AMERICA
+C   119   G2GFK  GULF OF AMERICA
 C   120   SYR    SYRACUSE, NY                                         
 C   121   AOO    ALTOONA, PA                                          
 C   122   ROA    ROANOKE, VA                                          
