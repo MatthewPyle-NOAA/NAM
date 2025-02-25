@@ -117,7 +117,7 @@ C
 C              FOUS76 LOCATIONS                                       
      P   85,  86,  87,  88,  89,  90,
 C                                                                     
-C              GULF OF MEXICO LOCATIONS                               
+C              GULF OF AMERICA LOCATIONS
 C                                                                     
 C              FOUS77 LOCATIONS                                       
      Q  100, 101, 102, 103, 104, 105,
@@ -236,7 +236,7 @@ C              TWO STATIONS PER BULLETIN LINE
 C                                                                     
            IF ( K .EQ. 18 .OR. K .EQ. 19 .OR.K .GE. 24 ) THEN
 C                                                                     
-C              SECTION TO INSERT GULF OF MEXICO LOCATION NAMES        
+C              SECTION TO INSERT GULF OF AMERICA LOCATION NAMES
 C              INTO BULLETIN LINE                                     
 C                                                                     
              JM = JN + 1

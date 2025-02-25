@@ -74,9 +74,9 @@ B ABI   1790  32.47 - 99.85 # FBUS31, 33, 35  Abilene,               TEXAS
   GRI   1846  40.98 - 98.30                   Grand Island,          NEBRASKA
   GSP    972  34.88 - 82.22                   Greer,                 SOUTH CAROLINA
   GTF   3674  47.45 -111.40 #                 Great Falls,           MONTANA
-  H51      0  26.50 -095.00                   Bay city,              GULF OF MEXICO
-  H52      0  26.00 -089.50                   Mid Gulf,              GULF OF MEXICO
-  H61      0  26.50 -084.00                   W Fort Myers West,     GULF OF MEXICO
+  H51      0  26.50 -095.00                   Bay city,              GULF OF AMERICA
+  H52      0  26.00 -089.50                   Mid Gulf,              GULF OF AMERICA
+  H61      0  26.50 -084.00                   W Fort Myers West,     GULF OF AMERICA
   HAT     11  35.27 - 75.55                   Cape Hatteras,         NORTH CAROLINA
   HOU     47  29.63 -095.27 #                 Houston,               TEXAS 
   HSV    629  34.55 -086.77                   Huntsville,            ALABAMA
@@ -159,9 +159,9 @@ B ABI   1790  32.47 - 99.85 # FBUS31, 33, 35  Abilene,               TEXAS
   SSM    690  46.40 - 84.30 #                 Sault Ste. Marie,      MICHIGAN
   STL    589  38.85 - 90.47 #                 St. Louis,             MISSOURI
   SYR    421  43.15 - 76.20                   Syracuse,              NEW YORK
-  T01      0  28.50 -093.50                   West Cameron,          GULF OF MEXICO
-  T06      0  28.50 -091.00                   Ship Shoal,            GULF OF MEXICO
-  T07      0  28.50 -088.00                   S Mobile South,        GULF OF MEXICO
+  T01      0  28.50 -093.50                   West Cameron,          GULF OF AMERICA
+  T06      0  28.50 -091.00                   Ship Shoal,            GULF OF AMERICA
+  T07      0  28.50 -088.00                   S Mobile South,        GULF OF AMERICA
   TCC   4063  35.17 -103.58                   Tucumcari,             NEW MEXICO
   TLH     81  30.55 - 84.37 #                 Tallahassee,           FLORIDA
   TRI   1519  36.47 -082.40 #                 Bristol/Johnson,       TENNESSEE
@@ -173,7 +173,7 @@ B ABI   1790  32.47 - 99.85 # FBUS31, 33, 35  Abilene,               TEXAS
   YKM   1095  46.57 -120.43                   Yakima,                WASHINGTON
   ZUN   6454  34.95 -109.15                   Zuni,                  NEW MEXICO
   2XG      0  30.33 - 78.50 #                 Gauge,                 ATLANTIC OCEAN
-E 4J3      0  28.50 -085.00                   S Apalachicola South,  GULF OF MEXICO
+E 4J3      0  28.50 -085.00                   S Apalachicola South,  GULF OF AMERICA
 B ADK     13  51.93 -176.42   FBAK31, 33, 35  Adak,                  ALASKA
   ADQ    112  57.77 -152.58                   Kodiak,                ALASKA
   AKN     49  58.73 -156.75                   King Salmon,           ALASKA
